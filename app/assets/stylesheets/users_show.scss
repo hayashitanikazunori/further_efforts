@@ -1,0 +1,66 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// ユーザープロファイル
+.user_profile {
+  width: 50%;
+  height: 300px;
+  background-color: rgb(255, 215, 140);
+  display: inline-block;
+  padding: 20px 30px 20px 200px;
+  .user_image {
+    width: 30%;
+    height: 100px;
+    float: left;
+  }
+  .user_name {
+    width: 70%;
+    height: 100px;
+    padding: 20px 0 0 10px;
+    float: right;
+    .user_name_p {
+      color: black;
+      border: solid 1px slategray;
+      font-size: 20px;
+    }
+  }
+  .user_somehistory {
+    padding: 10px 50px;
+    .user_somehistory_p {
+      color: black;
+    }
+  }
+}
+
+// カレンダー
+.calender {
+  width: 50%;
+  height: 300px;
+  background-color: rgb(221, 248, 145);
+  // display: inline-block;
+  float : right;
+}
+
+// 学習内容
+.learning-profile {
+  text-align: center;
+}
+
+// ユーザー投稿一覧
+.user_posts {
+  text-align: center;
+  // 後で消すこと
+  .user_posts_p {
+    color: black;
+  }
+}
+
+// いいねしたところ
+.user_likes {
+  text-align: center;
+  // 後で消すこと
+  .user_likes_p {
+    color: black;
+  }
+}

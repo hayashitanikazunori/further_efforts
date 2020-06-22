@@ -1,2 +1,36 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="conotent">
+  <div class="user_profile">
+    <div class="user_image">
+      <p>ユーザー画像</p>
+    </div>
+    <div class="user_name">
+      <%= link_to "#{@user.name}", "/users/edit", :class => 'user_name_p' %>
+    </div>
+    <div class="user_somehistory">
+      <p>エンジニア歴</p>
+      <p><%= link_to "フォロー数", "#", :class => 'user_somehistory_p' %></p>
+      <p><%= link_to "フォロアー数", "#", :class => 'user_somehistory_p' %></p>
+      <p>いいねした数</p>
+    </div>
+  </div>
+  
+  <%# カレンダーが実装完了次第表示させる %>
+  <div class="calender">
+   <p>カレンダーを表示</p>
+  </div>
+
+  <%# postが実装完了次第表示させる %>
+  <div class="learning-profile">
+    <p>学習している内容を表示<p>
+  </div>
+
+  <%# 投稿機能が実装完了次第表示させる %>
+  <div class="user_posts">
+    <%= link_to "ユーザー投稿一覧を表示", "#", :class => 'user_posts_p' %>
+  </div>
+
+  <%# likeが実装完了次第表示させる %>
+  <div class="user_likes">
+    <%= link_to "いいねしている投稿を表示させる", "#", :class => 'user_likes_p' %>
+  </div>
+</div>
