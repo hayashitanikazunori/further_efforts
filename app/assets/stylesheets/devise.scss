@@ -1,10 +1,25 @@
 .forms {
   width: 50%;
   margin: 10px auto;
-  text-align: center;
-  background-color: orange;
+  padding: 10px 50px;
 }
 
-.form-labels {
-  // text-align: left;
+// 見出し
+.forms h2 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+// フィールド
+input {
+  width: 100%;
+}
+
+.actions {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.btn-primary {
+  width: 50%;
 }
