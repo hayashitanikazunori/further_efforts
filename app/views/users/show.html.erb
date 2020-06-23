@@ -1,7 +1,12 @@
 <div class="conotent">
   <div class="user_profile">
     <div class="user_image">
-      <p>ユーザー画像</p>
+      <% if @user.avatar.nil? %>
+        <p>画像がありません</p>
+      <% else %>
+      真木さんに質問する
+        <%= image_tag(@user.avatar) if @user.avatar.attached? %>
+      <% end %>
     </div>
     <div class="user_name">
       <%= link_to "#{@user.name}", "/users/edit", :class => 'user_name_p' %>
