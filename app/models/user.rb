@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # アクティブストレージでuserのavatarと命名
-  # has_one_attached :avatar
+  アクティブストレージでuserのavatarと命名
+  has_one_attached :avatar
 end

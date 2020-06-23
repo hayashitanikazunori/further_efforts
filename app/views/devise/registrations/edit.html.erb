@@ -5,6 +5,11 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
+      <%= f.label :アバター %><br />
+      <%= f.file_field :avatar %>
+    </div>
+
+    <div class="field">
       <%= f.label :名前 %><br />
       <%= f.text_field :name %>
     </div>
