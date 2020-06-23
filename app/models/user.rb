@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   # アクティブストレージでuserのavatarと命名
   has_one_attached :avatar
+
+  # バリデーション
+  validates :name, presence: true
 end
