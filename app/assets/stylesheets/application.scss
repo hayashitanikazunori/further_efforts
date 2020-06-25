@@ -16,3 +16,20 @@
 
 //  bootstrapのスタイルシートを読み込ませる
 @import "bootstrap";
+@import "bootstrap/scss/bootstrap";
+
+// ログイン画面
+.container-login {
+  @extend .container-fluid;
+  max-width: 576px;
+  padding: 2rem;
+}
+
+// ログインしましたなどのフラッシュ用スタイル
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}

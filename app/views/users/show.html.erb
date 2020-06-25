@@ -4,8 +4,7 @@
       <% if @user.avatar.nil? %>
         <p>画像がありません</p>
       <% else %>
-      真木さんに質問する
-        <%= image_tag(@user.avatar) if @user.avatar.attached? %>
+        <%= image_tag @user.avatar, :size => '80x80' %>
       <% end %>
     </div>
     <div class="user_name">
