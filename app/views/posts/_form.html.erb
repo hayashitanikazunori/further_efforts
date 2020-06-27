@@ -1,14 +1,14 @@
 <div class ="post_f">
   <%= form_with model: post, local: true do |f| %>
-    <div class ="f_kind">
+    <div class ="post_field">
       <%= f.label :kind, "学習言語" %><br>
       <%= f.select :kind, options_for_select(Post.kinds.keys), {}, {class: "custom-select"} %><br>
     </div>
-    <div class ="f_body">
+    <div class ="post_field">
       <%= f.label :body, "コメント" %><br>
       <%= f.text_field :body, :class => "form-control" %><br>
     </div>
-    <div class ="f_span">
+    <div class ="post_field">
       <%= f.label :span, "学習した時間" %><br>
       <%= f.time_select :span, prompt:true, ignore_data:true %><br>
     </div>
@@ -16,9 +16,4 @@
       <input type="submit" class="btn btn-primary btn-lg" data-disable-with="投稿する" value="投稿する">
     </div>
   <% end %>
-</div>
-<div class="post_fotter">
-  <div class="copywrite">
-    <p>copywrite</p>
-  </div>
 </div>

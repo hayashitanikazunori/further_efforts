@@ -1,18 +1,15 @@
-// <div class ="post_f">
-//   <%= form_with model: post, local: true do |f| %>
-//     <div class ="f_kind">
-//       <%= f.label :kind, "学習言語" %><br>
-//       <%= f.select :kind, options_for_select(Post.kinds.keys), {}, {class: "custom-select"} %><br>
-//     </div>
-//     <div class ="f_body">
-//       <%= f.label :body, "コメント" %><br>
-//       <%= f.text_field :body, :class => "form-control" %><br>
-//     </div>
-//     <div class ="f_span">
-//       <%= f.label :span, "学習した時間" %><br>
-//       <%= f.time_select :span, prompt:true, ignore_data:true %><br>
-//     </div>
-//     <div class ="f_sbumit">
-//       <input type="submit" class="btn btn-primary btn-lg" data-disable-with="投稿する" value="投稿する">
-//     </div>
-//   <% end %>
+.post_f {
+  width: 50%;
+  height: 400px;
+  margin: 0 auto;
+  padding-top: 30px;
+
+  .post_field {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+
+  .f_sbumit {
+    text-align: center;
+  }
+}

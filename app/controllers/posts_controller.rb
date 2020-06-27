@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @posts = Post.all
   end
 
   def ranking
@@ -24,6 +25,9 @@ class PostsController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
   end
 
   private
