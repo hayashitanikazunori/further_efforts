@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
     create_table :posts do |t|
       t.string :kind
       t.string :body
-      t.time :span
+      t.integer :span
       t.timestamps
     end
   end
