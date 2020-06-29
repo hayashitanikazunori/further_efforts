@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   # バリデーション
   validates :kind, presence: true
-  validates :body, presence: true
+  validates :body, presence: true, length: { maximum: 30 }
   validates :span, presence: true
 
   # form_with selectの配列

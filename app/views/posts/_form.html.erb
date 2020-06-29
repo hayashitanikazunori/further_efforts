@@ -1,3 +1,4 @@
+
 <div class ="post_f">
   <%= form_with model: post, local: true do |f| %>
     <div class ="post_field">
@@ -8,10 +9,11 @@
       <%= f.label :body, "コメント" %><br>
       <%= f.text_field :body, :class => "form-control" %><br>
     </div>
-    <div class ="post_field">
-      <%= f.label :span, "学習した時間" %><br>
-      <%= f.time_select :span, prompt:true, ignore_data:true %><br>
-    </div>
+    <%# <div class ="post_field">
+      <%= label :span, "学習した時間" <br>
+      <%= f.time_select :span, prompt:true, ignore_data:true <br>
+    </div> %>
+    <%= time_select("time", :post_span, prompt:true, ignore_date:true) %>
     <div class ="f_sbumit">
       <input type="submit" class="btn btn-primary btn-lg" data-disable-with="投稿する" value="投稿する">
     </div>
