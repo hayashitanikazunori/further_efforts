@@ -14,17 +14,17 @@
           <%# あとで表示できるようにすること %>
         </div>
         <div class="post_user_name">
-          <%= post.user.name %>
+          <%= link_to "#{post.user.name}", user_path(post.user_id), :class => "linkbtn" %>
         </div>
       </div>
       <div class="post_learning_kind">
-        <%= post.kind %>
+        <%= link_to "#{post.kind}", post_path(post.id), :class => "linkbtn" %>
       </div>
       <div class="post_comment">
         <%= post.body %>
       </div>
       <div class="post_learning_time">
-        <%= post.span %>
+        <%= post.span / 60 %>時間<%= post.span % 60 %>分
       </div>
       <div class="post_learning_time_total">
         <p>learning_time_total</p>
@@ -34,8 +34,8 @@
       </div>
       <div class="post_edit_destroy_btn">
         <% if post.user_id == current_user.id %>
-          <%= link_to "編集", edit_post_path(post.id) %>
-          <%= link_to "削除", post_path(post.id), method: :delete %>
+          <%= link_to "編集", edit_post_path(post.id), :class => "linkbtn" %>
+          <%= link_to "削除", post_path(post.id), method: :delete, :class => "linkbtn" %>
         <% end %>
       </div>
       <div class="post_like_btn">

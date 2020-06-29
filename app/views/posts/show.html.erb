@@ -4,7 +4,7 @@
       <p>post_user_avatar</p>
     </div>
     <div class="post_user_name">
-      <p>post_user_name</p>
+      <%= @post.user.name %>
     </div>
   </div>
   <div class="post_show_postprofile">
@@ -15,7 +15,7 @@
       <%= @post.body %>
     </div>
     <div class="post_learning_time p_show">
-      <%= @post.span %>
+      <%= @post.span / 60 %>時間<%= @post.span % 60 %>分
     </div>
     <div class="post_learning_time_total p_show">
       <p>learning_time_total</p>
