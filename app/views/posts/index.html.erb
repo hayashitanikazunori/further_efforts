@@ -7,37 +7,39 @@
   </div>
 </div>
 <div class="post_container">
-  <div class="post_box">
-    <div class="post_user_profile">
-      <div class="post_user_avatar">
-        <p>post_user_avatar</p>
+  <% @posts.each do |post| %>
+    <div class="post_box">
+      <div class="post_user_profile">
+        <div class="post_user_avatar">
+          <p>post_user_avatar</p>
+        </div>
+        <div class="post_user_name">
+          <p>post_user_name</p>
+        </div>
       </div>
-      <div class="post_user_name">
-        <p>post_user_name</p>
+      <div class="post_learning_kind">
+        <%= post.kind %>
+      </div>
+      <div class="post_comment">
+        <%= post.body %>
+      </div>
+      <div class="post_learning_time">
+        <%= post.span %>
+      </div>
+      <div class="post_learning_time_total">
+        <p>learning_time_total</p>
+      </div>
+      <div class="post_follow_btn">
+        <p>follow</p>
+      </div>
+      <div class="post_edit_destroy_btn">
+        <p>edit_destroy</p>
+      </div>
+      <div class="post_like_btn">
+        <p>like</p>
       </div>
     </div>
-    <div class="post_learning_kind">
-      <p>learning_kind</p>
-    </div>
-    <div class="post_comment">
-      <p>post_comment</p>
-    </div>
-    <div class="post_learning_time">
-      <p>learning_time</p>
-    </div>
-    <div class="post_learning_time_total">
-      <p>learning_time_total</p>
-    </div>
-    <div class="post_follow_btn">
-      <p>follow</p>
-    </div>
-    <div class="post_edit_destroy_btn">
-      <p>edit_destroy</p>
-    </div>
-    <div class="post_like_btn">
-      <p>like</p>
-    </div>
-  </div>
+  <% end %>
 </div>
 <div class="post_fotter">
   <div class="page_nation_fotter">

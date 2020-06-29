@@ -15,17 +15,19 @@
 
 .post_container {
   width: 70%;
-  height: 2000px;
+  height: 1500px;
   margin: 0 200px 10px 200px;
+  display: flex;
+  flex-wrap: wrap;
   background-color: teal;
   .post_box {
-    width: 30%;
-    height: 500px;
+    width: 50%;
+    height: 400px;
     background-color: tomato;
-    // 配置はまた調整が必須
+    padding: 10px 100px 10px 100px;
   }
   .post_user_profile {
-    height: 80px;
+    height: 15%;
     .post_user_avatar {
       width: 30%;
       height: 100%;
@@ -41,23 +43,23 @@
     }
   }
   .post_learning_kind {
-    height: 80px;
+    height: 15%;
     background-color: red;
   }
   .post_comment {
-    height: 80px;
+    height: 15%;
     background-color: pink;
   }
   .post_learning_time {
-    height: 80px;
+    height: 15%;
     background-color: rebeccapurple;
   }
   .post_learning_time_total {
-    height: 80px;
+    height: 15%;
     background-color: saddlebrown;
   }
   .post_follow_btn {
-    height: 50px;
+    height: 10%;
     background-color: seagreen;
   }
   .post_edit_destroy_btn {
