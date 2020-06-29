@@ -11,5 +11,8 @@ class User < ApplicationRecord
 
   # バリデーション
   validates :name, presence: true
-  
+
+  def posts
+    return Post.where(user_id: self.id)
+  end
 end

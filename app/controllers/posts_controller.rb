@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :destroy, :update, :create]
+  before_action :current_user_authenticate, only: [:edit, :destroy, :update]
+
   def index
     @posts = Post.all
   end
@@ -31,6 +34,19 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    @post.span = params[:time]["post_span(4i)"].to_i * 60 + params[:time]["post_span(5i)"].to_i
+    if @post.save
+      flash[:notice] = "編集しました"
+      redirect_to "/posts#{params[:id]}"
+    else
+      flash.now[:alert] = "編集に失敗しました"
+      render("/posts/#{params[:id]}")
+    end
+  end
+
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
@@ -45,5 +61,13 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:kind, :body)
+  end
+
+  def current_user_authenticate
+    @post = Post.find(params[:id])
+    if @post.user_id != current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to("/posts")
+    end
   end
 end
