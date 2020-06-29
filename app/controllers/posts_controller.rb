@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.span = params[:time]["post_span(4i)"].to_i * 60 + params[:time]["post_span(5i)"].to_i
+    @post.user_id = current_user.id
     if @post.save
       flash[:notice] = "投稿しました"
       redirect_to "/posts"
@@ -27,9 +28,18 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      flash[:notice] = "削除しました"
+      redirect_to "/posts"
+    else
+      flash.now[:alert] = "削除に失敗しました"
+      render("posts/#{params[:id]}")
+    end
   end
 
   private
