@@ -14,7 +14,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params, span: post_span.time)
+    @post = Post.new(post_params)
+    @post.span = params[:time]["post_span(4i)"].to_i * 60 + params[:time]["post_span(5i)"].to_i
     if @post.save
       flash[:notice] = "投稿しました"
       redirect_to "/posts"
@@ -33,12 +34,5 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:kind, :body)
-  end
-
-  # 時間を記録する
-  def post_span
-    hour = params[:post_span(4i)]
-    minute = params[:post_span(5i)]
-    time = minute + hour * 60
   end
 end
