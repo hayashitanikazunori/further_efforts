@@ -6,17 +6,17 @@ class Post < ApplicationRecord
 
   # form_with selectの配列
   enum kind: {
-    JavaScript: 0,
-    Ruby: 1,
-    Python: 2,
-    Go: 3,
-    Swift: 4,
-    'C++': 5,
-    'C#': 6,
-    PHP: 7,
-    Scala: 8,
-    Kotlin: 9,
-    Java: 10,
+    JavaScript: "JavaScript",
+    Ruby: "Ruby",
+    Python: "Python",
+    Go: "Go",
+    Swift: "Swift",
+    'C++': "C++",
+    'C#': "C#",
+    PHP: "PHP",
+    Scala: "Scala",
+    Kotlin: "Kotlin",
+    Java: "Java",
   }, _prefix: true
 
 end
