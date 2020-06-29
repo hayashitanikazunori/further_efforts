@@ -33,7 +33,10 @@
         <p>follow</p>
       </div>
       <div class="post_edit_destroy_btn">
-        <p>edit_destroy</p>
+        <% if post.user_id == current_user.id %>
+          <%= link_to "編集", edit_post_path(post.id) %>
+          <%= link_to "削除", post_path(post.id), method: :delete %>
+        <% end %>
       </div>
       <div class="post_like_btn">
         <p>like</p>
