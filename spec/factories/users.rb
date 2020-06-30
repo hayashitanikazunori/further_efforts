@@ -1,9 +1,8 @@
 FactoryBot.define do
   factory :user do
-    avatar {"img_test.png"}
-    name {"tester"}
-    email {"tester@example.com"}
-    password {"tester01"}
-    password_confirmation {"tester01"}
+    name {"test01"}
+    email {"test01@example.com"}
+    password {"test01"}
+    password_confirmation {"test01"}
   end
 end
