@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :comments
 
   # バリデーション
   validates :kind, presence: true
@@ -10,6 +11,10 @@ class Post < ApplicationRecord
   def user
     return User.find_by(id: self.user_id)
   end
+
+  # def comments
+  #   return Comment.where(post_id: self.id)
+  # end
 
   # kindカラム毎の合計時間算出
   def span_total

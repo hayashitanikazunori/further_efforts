@@ -1,0 +1,8 @@
+<%= form_with model: [post, comment], local: true do |c| %>
+  <%= c.text_field :review %><br >
+  <%= c.hidden_field :post_id, value: @post.id %>
+  <%= c.submit 'コメントする' %>
+<% end %>
+<% comments.each do |comment| %>
+  <%= comment.review %>
+<% end %>
