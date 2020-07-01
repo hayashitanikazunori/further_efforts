@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      get :followings, :followers
+    end
+  end
+  resources :follow_relationships, only: [:create, :destroy]
   resources :posts do
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy]

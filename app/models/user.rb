@@ -4,7 +4,12 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
-  has_many :comments 
+  has_many :comments
+  # フォロー機能の設定
+  has_many :following_relationships,foreign_key: "follower_id", class_name: "FollowRelationship", dependent: :destroy
+  has_many :followings, through: :following_relationships
+  has_many :follower_relationships,foreign_key: "following_id", class_name: "FollowRelationship", dependent: :destroy
+  has_many :followers, through: :follower_relationships
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -19,7 +24,24 @@ class User < ApplicationRecord
     return Post.where(user_id: self.id)
   end
 
+  # すでにいいねをしているかを調べる
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
+  end
+
+  # フォロー関連のメソッド
+  #  すでにフォロー済みであればtrueを返す
+  def following?(other_user)
+    self.followings.include?(other_user)
+  end
+
+  # ユーザーのフォローをできるメソッド
+  def follow(other_user)
+    self.following_relationships.create(following_id: other_user.id)
+  end
+
+  # ユーザーのフォローを解除する
+  def unfollow(other_user)
+    self.following_relationships.find_by(following_id: other_user.id).destroy
   end
 end
