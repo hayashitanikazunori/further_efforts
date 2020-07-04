@@ -1,11 +1,10 @@
 <div class="conotent">
   <div class="user_profile">
     <div class="user_image">
-      <% if @user.avatar.nil? %>
+      <% if @user.avatar.blank? %>
         <p>画像がありません</p>
       <% else %>
-        <%= @user.avatar %>
-        <%# <%= image_tag @user.avatar, :size => '80x80' %> %>
+        <%= image_tag @user.avatar, :size => '80x80' %>
       <% end %>
     </div>
     <div class="user_name">
