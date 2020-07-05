@@ -4,13 +4,6 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     
-<%# 真木さんに質問する %>
-    <%# <div class="form-group"> %>
-     <%# <%= f.label :名前 <br /> %>
-      <%# <input type="name"  id="field" placeholder="名前を入力してください"> %>
-      <%# <small id="field-helper" class="form-text text-muted">We'll never share your email with anyone else.</small> %>
-    <%# </div> %>
-
     <div class="form-labels">
       <div class="field">
         <%= f.label :name %><br />

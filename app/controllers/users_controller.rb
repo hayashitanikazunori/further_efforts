@@ -13,4 +13,14 @@ class UsersController < ApplicationController
       .pluck(:user_id) # 最後にuser_idを返す
     )
   end
+  
+  def followings
+    @user = User.find(params[:id])
+    @users = @user.followings
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers
+  end
 end

@@ -39,7 +39,7 @@
         <% end %>
       </div>
       <div class="post_like_btn">
-        <p>like</p>
+        <%= render partial: "likeform", locals: {post: post} %>  
       </div>
     </div>
   <% end %>

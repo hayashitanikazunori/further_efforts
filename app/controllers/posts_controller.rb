@@ -6,11 +6,11 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def ranking
-  end
-
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
+    @comment = Comment.new
+    @like = Like.new
   end
 
   def new

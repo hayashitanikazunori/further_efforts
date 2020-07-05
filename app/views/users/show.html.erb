@@ -8,10 +8,23 @@
     </div>
     <div class="user_somehistory">
       <p>エンジニア歴</p>
-      <p><%= link_to "フォロー数", "#", :class => 'user_somehistory_p' %></p>
-      <p><%= link_to "フォロアー数", "#", :class => 'user_somehistory_p' %></p>
+      <p><%= link_to "フォロー(#{@user.followings.count})", followings_user_path(@user), :class => 'user_somehistory_p' %></p>
+      <p><%= link_to "フォロアー(#{@user.followers.count})", followers_user_path(@user), :class => 'user_somehistory_p' %></p>
       <p>いいねした数</p>
     </div>
+    <% if @user != current_user%>
+      <% if current_user.following?(@user) %>
+        <%= form_with(model: current_user.following_relationships.find_by(following_id: @user.id),method: :delete) do |f| %>
+          <%= f.hidden_field :following_id %>  
+          <%= f.submit "フォロー", class: "btn btn-outline-secondary" %>
+        <% end %>
+      <% else %>
+        <%= form_with(model: current_user.following_relationships.build) do |f| %>
+          <%= f.hidden_field :following_id, value: @user.id %>
+          <%= f.submit "フォローする", class: "btn btn-outline-secondary" %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
   
   <%# カレンダーが実装完了次第表示させる %>

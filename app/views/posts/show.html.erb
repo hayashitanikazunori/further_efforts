@@ -27,9 +27,15 @@
       <p>edit_destroy</p>
     </div>
     <div class="post_like_btn">
-      <p>like</p>
+      <%= render partial: "likeform", locals: {post: @post} %>  
     </div>
   </div>
+</div>
+<div class="post_comments">
+  <%= render partial: "comment", locals: {comment: @comment, post: @post, comments: @comments} %>
+</div>
+<div class ="post_liked_users">
+  <%= render partial: "likeduser", locals: {post: @post} %>
 </div>
 <div class="post_fotter">
   <div class="page_nation_fotter">
