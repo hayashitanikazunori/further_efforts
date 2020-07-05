@@ -11,7 +11,7 @@
     <div class="post_box">
       <div class="post_user_profile">
         <div class="post_user_avatar">
-          <%# あとで表示できるようにすること %>
+          <%= render partial: "shares/user_avatar", locals: {user: post.user} %>
         </div>
         <div class="post_user_name">
           <%= link_to "#{post.user.name}", user_path(post.user_id), :class => "linkbtn" %>

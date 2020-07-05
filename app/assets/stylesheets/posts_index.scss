@@ -20,59 +20,60 @@
   display: flex;
   flex-wrap: wrap;
   background-color: teal;
-  .post_box {
-    width: 50%;
-    height: 400px;
-    background-color: tomato;
-    padding: 10px 100px 10px 100px;
-  }
-  .post_user_profile {
-    height: 15%;
-    .post_user_avatar {
-      width: 30%;
-      height: 100%;
-      float: left;
-      background-color: yellow;
-    }
-    .post_user_name {
-      width: 70%;
-      height: 100%;
-      padding: 20px 0 0 10px;
-      float: right;
-      background-color: violet;
-    }
-  }
-  .post_learning_kind {
-    height: 15%;
-    background-color: red;
-  }
-  .post_comment {
-    height: 15%;
-    background-color: pink;
-  }
-  .post_learning_time {
-    height: 15%;
-    background-color: rebeccapurple;
-  }
-  .post_learning_time_total {
-    height: 15%;
-    background-color: saddlebrown;
-  }
-  .post_follow_btn {
-    height: 10%;
-    background-color: seagreen;
-  }
-  .post_edit_destroy_btn {
-    float: left;
-    background-color: slategrey;
-  }
-  .post_like_btn {
-    float: right;
-    background-color: sienna;
-  }
 }
 
-  .page_nation_fotter {
+.post_box {
+  width: 50%;
+  height: 400px;
+  background-color: tomato;
+  padding: 10px 100px 10px 100px;
+}
+.post_user_profile {
+  height: 80px;
+  .post_user_avatar {
+    width: 70px;
+    height: 70px;
+    float: left;
+  }
+  .post_user_name {
+    width: 70%;
+    height: 100%;
+    padding: 20px 0 0 10px;
+    float: right;
+    background-color: violet;
+  }
+}
+.post_learning_kind {
+  height: 15%;
+  background-color: red;
+}
+.post_comment {
+  height: 15%;
+  background-color: pink;
+}
+.post_learning_time {
+  height: 15%;
+  background-color: rebeccapurple;
+}
+.post_learning_time_total {
+  height: 15%;
+  background-color: saddlebrown;
+}
+.post_follow_btn {
+  height: 10%;
+  background-color: seagreen;
+}
+.post_edit_destroy_btn {
+  float: left;
+  background-color: slategrey;
+}
+.post_like_btn {
+  float: right;
+  background-color: sienna;
+}
+
+
+.page_nation_fotter {
     margin-bottom: 0px;
     background-color: rgb(235, 75, 75);
   }

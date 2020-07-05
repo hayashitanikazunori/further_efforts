@@ -1,0 +1,5 @@
+<% if user.avatar.blank? %>
+  <%= image_tag 'FEdefault.png', :size => '70x70' %>
+<% else %>
+  <%= image_tag user.avatar, :size => '70x70' %>
+<% end %>

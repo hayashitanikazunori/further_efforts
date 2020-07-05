@@ -1,5 +1,29 @@
-<% @rank_user.each do |user| %>
-  <%= user.name %>
-<% end %>
-
+<div class="ranking_title">
+  <h1>週間ランキング</h1>
+</div>
+<div class="user_ranking_container">
+  <% @rank_user.each.with_index(1) do |user, i| %>
+    <div class="post_box">
+      <div class="user_rank">
+        <h2><%= i %></h2>
+      </div>
+      <div class="post_user_profile">
+        <div class="post_user_avatar">
+          <%= render partial: "shares/user_avatar", locals: {user: user} %>
+        </div>
+        <div class="rank_user_name">
+          <h4><%= link_to "#{user.name}", user_path(user.id), :class => "linkbtn" %></h4>
+        </div>
+        <div class="posts_user_date">
+          <p>エンジニア歴</p>
+          <p>フォロー</p>
+          <p>フォロアー</p>
+        </div>
+        <div class="user_week_span">
+          <p>今週の学習時間</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 <%= render "shares/footer" %>

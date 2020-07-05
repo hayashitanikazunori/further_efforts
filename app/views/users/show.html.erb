@@ -1,11 +1,7 @@
 <div class="conotent">
   <div class="user_profile">
     <div class="user_image">
-      <% if @user.avatar.blank? %>
-        <p>画像がありません</p>
-      <% else %>
-        <%= image_tag @user.avatar, :size => '80x80' %>
-      <% end %>
+      <%= render partial: "shares/user_avatar", locals: {user: @user} %>
     </div>
     <div class="user_name">
       <%= link_to "#{@user.name}", "/users/edit", :class => 'user_name_p' %>
