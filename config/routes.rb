@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'posts/ranking'
   get 'users/ranking'
 
   devise_for :users
