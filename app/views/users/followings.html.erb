@@ -1,3 +1,1 @@
-<% @users.each do |users| %>
-  <%= users.name %>
-<% end %>
+<%= render partial: "follow_form", locals: {user: @user, follows: @followings} %>

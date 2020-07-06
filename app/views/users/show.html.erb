@@ -7,16 +7,16 @@
       <%= link_to "#{@user.name}", "/users/edit", :class => 'user_name_p' %>
     </div>
     <div class="user_somehistory">
-      <p>エンジニア歴</p>
+      <%# <p>エンジニア歴</p> # 導入するか検討%>
       <p><%= link_to "フォロー(#{@user.followings.count})", followings_user_path(@user), :class => 'user_somehistory_p' %></p>
       <p><%= link_to "フォロアー(#{@user.followers.count})", followers_user_path(@user), :class => 'user_somehistory_p' %></p>
       <p>いいねした数</p>
     </div>
     <% if @user != current_user%>
       <% if current_user.following?(@user) %>
-        <%= form_with(model: current_user.following_relationships.find_by(following_id: @user.id),method: :delete) do |f| %>
+        <%= form_with(model: current_user.following_relationships.find_by(following_id: @user.id), method: :delete) do |f| %>
           <%= f.hidden_field :following_id %>  
-          <%= f.submit "フォロー", class: "btn btn-outline-secondary" %>
+          <%= f.submit "フォロー済み", class: "btn btn-outline-secondary" %>
         <% end %>
       <% else %>
         <%= form_with(model: current_user.following_relationships.build) do |f| %>
