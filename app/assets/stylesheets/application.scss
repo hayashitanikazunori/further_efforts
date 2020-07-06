@@ -37,3 +37,12 @@
 .linkbtn {
   color: black;
 }
+// ボタンの下線を消す
+.btn-decoration {
+  text-decoration: none;
+}
+
+.action-btn {
+  color: blue($color: #698ab6);
+  font-size: 20px;
+}

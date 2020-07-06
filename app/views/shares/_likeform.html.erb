@@ -1,0 +1,10 @@
+<% if current_user.already_liked?(post) %>
+  <%= link_to post_like_path(post.id, current_user.id), method: :delete, :class => "btn-decoration" do%>
+    <i class="fas fa-heart"></i>
+  <% end %>
+<% else %>
+  <%= link_to post_likes_path(post.id, current_user.id), method: :post, :class => "btn-decoration" do%>
+    <i class="far fa-heart"></i>
+  <% end %>
+<% end %>
+<span>: <%= post.likes.count %></span>

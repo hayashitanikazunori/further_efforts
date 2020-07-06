@@ -1,0 +1,5 @@
+<h4>いいねしたユーザー: <%= post.likes.count %></h4>
+<% post.liked_users.each do |liked_user| %>
+  <%= render partial: "shares/user_avatar", locals: {user: liked_user} %>
+  <%= link_to liked_user.name, "/users/#{liked_user.id}", :class => "liked_user_name" %>
+<% end %>

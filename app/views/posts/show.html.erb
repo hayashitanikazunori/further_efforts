@@ -1,7 +1,7 @@
 <div class="post_show_container">
   <div class="post_show_userprofile">
     <div class="post_user_avatar">
-      <p>post_user_avatar</p>
+      <%= render partial: "shares/user_avatar", locals: {user: @post.user} %>
     </div>
     <div class="post_user_name">
       <%= @post.user.name %>
@@ -9,25 +9,29 @@
   </div>
   <div class="post_show_postprofile">
     <div class="post_learning_kind p_show">
+      <label>学習言語</label><br>
       <%= @post.kind %>
     </div>
     <div class="post_comment p_show">
+      <label>メモ</label><br>
       <%= @post.body %>
     </div>
     <div class="post_learning_time p_show">
+      <label>学習時間</label><br>
       <%= @post.span / 60 %>時間<%= @post.span % 60 %>分
     </div>
     <div class="post_learning_time_total p_show">
-      <p>learning_time_total</p>
+      <label>学習累計時間(<%= @post.kind %>)</label><br>
+      <%= @post.span_total / 60 %>時間<%= @post.span_total % 60 %>分
     </div>
-    <div class="post_follow_btn p_show">
-      <p>follow</p>
-    </div>
-    <div class="post_edit_destroy_btn p_show">
-      <p>edit_destroy</p>
+    <div class="post_show_actions">
+      <%= render partial: "shares/post_action", locals: {post: @post} %>
     </div>
     <div class="post_like_btn">
-      <%= render partial: "likeform", locals: {post: @post} %>  
+      <%= render partial: "shares/likeform", locals: {post: @post} %>  
+    </div>
+    <div class="post_created_at">
+      <p>投稿日時：<%= @post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
     </div>
   </div>
 </div>
@@ -35,7 +39,7 @@
   <%= render partial: "comment", locals: {comment: @comment, post: @post, comments: @comments} %>
 </div>
 <div class ="post_liked_users">
-  <%= render partial: "likeduser", locals: {post: @post} %>
+  <%= render partial: "shares/likeduser", locals: {post: @post} %>
 </div>
 <div class="post_fotter">
   <div class="page_nation_fotter">

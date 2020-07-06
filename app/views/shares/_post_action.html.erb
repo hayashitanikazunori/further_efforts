@@ -1,0 +1,8 @@
+<% if post.user_id == current_user.id %>
+  <%= link_to edit_post_path(post.id), :class => "btn-decoration" do %>
+    <i class="far fa-edit action-btn"></i>
+  <% end %>
+  <%= link_to post_path(post.id), method: :delete, :class => "btn-decoration" do %>
+    <i class="far fa-trash-alt action-btn"></i>
+  <% end %>
+<% end %>

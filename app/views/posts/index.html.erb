@@ -33,13 +33,10 @@
         <p>follow</p>
       </div>
       <div class="post_edit_destroy_btn">
-        <% if post.user_id == current_user.id %>
-          <%= link_to "編集", edit_post_path(post.id), :class => "linkbtn" %>
-          <%= link_to "削除", post_path(post.id), method: :delete, :class => "linkbtn" %>
-        <% end %>
+        <%= render partial: "shares/post_action", locals: {post: post} %>
       </div>
       <div class="post_like_btn">
-        <%= render partial: "likeform", locals: {post: post} %>  
+        <%= render partial: "shares/likeform", locals: {post: post} %>  
       </div>
     </div>
   <% end %>

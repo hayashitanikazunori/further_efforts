@@ -20,22 +20,38 @@
     width: 70%;
     height: 100%;
     float: right;
+    position: relative;
     padding: 30px 0 0 40px;
     background-color: whitesmoke;
     .p_show {
       margin-bottom: 10px;
       font-size: 30px;
     }
+    .post_like_btn {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+    }
+    .post_created_at {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    .post_show_actions{
+      position: absolute;
+      bottom: 40px;
+      right: 0;
+    }
+    label {
+      font-size: 15px;
+    }
   }
 }
 
-// <div class="post_show_container">
-//   <div class="post_show_userprofile">
-//     <div class="post_user_avatar">
-//       <p>post_user_avatar</p>
-//     </div>
-//     <div class="post_user_name">
-//       <p>post_user_name</p>
-//     </div>
-//   </div>
-//   <div class="post_show_postprofile">
+.post_liked_users {
+  margin: 10px 200px;
+  .liked_user_name {
+    font-size: 20px;
+    text-decoration: none;
+  }
+}
