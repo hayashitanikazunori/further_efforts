@@ -4,7 +4,7 @@
       <%= render partial: "shares/user_avatar", locals: {user: @post.user} %>
     </div>
     <div class="post_user_name">
-      <%= @post.user.name %>
+      <%= link_to @post.user.name, user_path(@post.user), :class => "btn-decoration" %>
     </div>
   </div>
   <div class="post_show_postprofile">
@@ -35,15 +35,11 @@
     </div>
   </div>
 </div>
-<div class="post_comments">
-  <%= render partial: "comment", locals: {comment: @comment, post: @post, comments: @comments} %>
-</div>
 <div class ="post_liked_users">
   <%= render partial: "shares/likeduser", locals: {post: @post} %>
 </div>
-<div class="post_fotter">
-  <div class="page_nation_fotter">
-    <p>page_nation_fotter</p>
-  </div>
+<div class="post_comments">
+  <h4>コメント一覧</h4>
+  <%= render partial: "comment", locals: {comment: @comment, post: @post, comments: @comments} %>
 </div>
 <%= render "shares/footer" %>

@@ -14,6 +14,10 @@
     .posts_user_avatar {
       margin-bottom: 20px;
     }
+    .post_user_name {
+      margin-top: 20px;
+      font-size: 30px;
+    }
   }
   
   .post_show_postprofile {
@@ -53,5 +57,15 @@
   .liked_user_name {
     font-size: 20px;
     text-decoration: none;
+  }
+}
+.post_comments {
+  margin: 40px 200px 0 200px;
+  tr {
+    border-top: rgb(133, 144, 173);
+    border-radius: 15px;
+  }
+  .commented {
+    margin: 10px 0;
   }
 }

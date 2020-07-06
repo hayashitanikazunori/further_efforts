@@ -1,8 +1,15 @@
 <%= form_with model: [post, comment], local: true do |c| %>
-  <%= c.text_field :review %><br >
+  <%= c.text_field :review, {class: "form-control", placeholder: "コメントを入力してください"} %><br >
   <%= c.hidden_field :post_id, value: @post.id %>
-  <%= c.submit 'コメントする' %>
+  <%= c.submit 'コメントする', :class => "btn btn-secondary" %>
 <% end %>
-<% comments.each do |comment| %>
-  <%= comment.review %>
-<% end %>
+<div class="commented">
+  <% comments.each do |comment| %>
+    <table class="table table-hover">
+      <tr class="table-light">
+        <th><%= render partial: "shares/user_avatar", locals: {user: comment.user} %><%= link_to comment.user.name, user_path(comment.user) %> ＞＞ <%= comment.review %></th>
+        <%# <th>= link_to "削除", post_comment_path(comment.id, comment.post.id), method: :delete </th> %>
+      </tr>
+    </table>
+  <% end %>
+</div>
