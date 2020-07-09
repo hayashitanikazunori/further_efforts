@@ -1,0 +1,15 @@
+<div class="follow_user_profile">
+  <%= render partial: "shares/user_avatar", locals: {user: user} %>
+  <span><%= link_to user.name, user_path(user) %></span>
+  <p>フォロワー数：<%= user.followers.count %></p>
+  <%= render partial: "follow_form", locals: {user: user} %>
+</div>
+<div class="follows_container">
+  <% follows.each do |follows| %>
+    <table class="table table-hover">
+    <tr class="table-light">
+      <th><%= render partial: "shares/user_avatar", locals: {user: follows} %><%= follows.name %></th>
+    </tr>
+  </table>
+  <% end %>
+</div>

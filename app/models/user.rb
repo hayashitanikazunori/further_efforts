@@ -24,6 +24,24 @@ class User < ApplicationRecord
     return Post.where(user_id: self.id)
   end
 
+  def span_total
+    total = Post.where(
+      kind: self.kind,
+      user_id: self.user_id
+    )
+    return total.sum(:span)
+  end
+  
+  # def learns
+  #   today = Date.current # 今日の日付を取得
+  #   @learns = User.find( 
+  #     Post.group(:user_id) # user_idでグループ化
+  #     .where(created_at: today.in_time_zone.all_week) # 今週の投稿のみで絞り込み
+  #     .order("sum(span) desc") # spanカラムを合計してそれを降順に並び替える
+  #     .pluck(:user_id) # 最後にuser_idを返す
+  #   )
+  # end
+
   # すでにいいねをしているかを調べる
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)

@@ -12,19 +12,7 @@
       <p><%= link_to "フォロアー(#{@user.followers.count})", followers_user_path(@user), :class => 'user_somehistory_p' %></p>
       <p>いいねした数</p>
     </div>
-    <% if @user != current_user%>
-      <% if current_user.following?(@user) %>
-        <%= form_with(model: current_user.following_relationships.find_by(following_id: @user.id), method: :delete) do |f| %>
-          <%= f.hidden_field :following_id %>  
-          <%= f.submit "フォロー済み", class: "btn btn-outline-secondary" %>
-        <% end %>
-      <% else %>
-        <%= form_with(model: current_user.following_relationships.build) do |f| %>
-          <%= f.hidden_field :following_id, value: @user.id %>
-          <%= f.submit "フォローする", class: "btn btn-outline-secondary" %>
-        <% end %>
-      <% end %>
-    <% end %>
+    <%= render partial: "follow_form", locals: {user: @user} %>
   </div>
   
   <%# カレンダーが実装完了次第表示させる %>
@@ -35,16 +23,11 @@
   <%# postが実装完了次第表示させる %>
   <div class="learning-profile">
     <p>学習している内容を表示<p>
+    <%#= @user.learns.kind %>
   </div>
-
-  <%# 投稿機能が実装完了次第表示させる %>
   <div class="user_posts">
-    <%= link_to "ユーザー投稿一覧を表示", "#", :class => 'user_posts_p' %>
-  </div>
-
-  <%# likeが実装完了次第表示させる %>
-  <div class="user_likes">
-    <%= link_to "いいねしている投稿を表示させる", "#", :class => 'user_likes_p' %>
+  <h3>過去の投稿</h3>
+    <%= render partial: "shares/posts_box", locals: {posts: @user.posts} %>
   </div>
 </div>
 

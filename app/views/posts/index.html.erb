@@ -34,9 +34,6 @@
           <label>累計学習時間(<%= post.kind %>)</label><br>
           <%= post.span_total / 60 %>時間<%= post.span_total % 60 %>分
         </div>
-        <div class="post_follow_btn">
-          <p>follow</p>
-        </div>
         <div class="post_edit_destroy_btn">
           <%= render partial: "shares/post_action", locals: {post: post} %>
         </div>

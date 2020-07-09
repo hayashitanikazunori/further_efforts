@@ -1,10 +1,9 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :destroy, :update, :create]
+  before_action :authenticate_user!, only: [:index, :new, :edit, :destroy, :update, :create]
   before_action :current_user_authenticate, only: [:edit, :destroy, :update]
 
   def index
     @posts = Post.all.page(params[:page]).per(5)
-    # @posts = Kaminari.pagenate_array(@posts).page(params[:page]).per(5)
   end
 
   def show

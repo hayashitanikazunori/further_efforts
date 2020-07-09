@@ -1,14 +1,13 @@
-<div class="follow_user_profile">
-  <%= render partial: "shares/user_avatar", locals: {user: user} %>
-  <span><%= link_to user.name, user_path(user) %></span>
-  <p>フォロワー数：<%= user.followers.count %></p>
-</div>
-<div class="follows_container">
-  <% follows.each do |follows| %>
-    <table class="table table-hover">
-    <tr class="table-light">
-      <th><%= render partial: "shares/user_avatar", locals: {user: follows} %><%= follows.name %></th>
-    </tr>
-  </table>
+<% if @user != current_user%>
+  <% if current_user.following?(user) %>
+    <%= form_with(model: current_user.following_relationships.find_by(following_id: user.id), method: :delete) do |f| %>
+      <%= f.hidden_field :following_id %>  
+      <%= f.submit "フォロー済み", class: "btn btn-outline-secondary" %>
+    <% end %>
+  <% else %>
+    <%= form_with(model: current_user.following_relationships.build) do |f| %>
+      <%= f.hidden_field :following_id, value: user.id %>
+      <%= f.submit "フォローする", class: "btn btn-outline-secondary" %>
+    <% end %>
   <% end %>
-</div>
+<% end %>
