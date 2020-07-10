@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    # @week_kind = @user.week_total.group(:kind).select(:kind)
-    # @week_span = @user.week_total.group(:kind).select(:span).sum(:span)
   end
 
   def ranking
