@@ -37,7 +37,7 @@
         <div class="post_edit_destroy_btn">
           <%= render partial: "shares/post_action", locals: {post: post} %>
         </div>
-        <div class="post_like_btn">
+        <div class="post_like_btn" id="like_bottons_<%= post.id %>">
           <%= render partial: "shares/likeform", locals: {post: post} %>  
         </div>
       </div>

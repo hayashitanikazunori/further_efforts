@@ -53,7 +53,6 @@ class User < ApplicationRecord
     .sum(:span)
   end
 
-
   # すでにいいねをしているかを調べる
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)

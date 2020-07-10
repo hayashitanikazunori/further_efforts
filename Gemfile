@@ -40,12 +40,14 @@ gem 'devise-i18n-views'
 # bootstrap
 gem 'sassc', '~> 2.3.0'
 gem 'uglifier'
-gem 'jquery-rails'
 gem 'bootstrap'
 gem 'devise-bootstrap-views', '~> 1.0'
 
 # kaminari
 gem 'kaminari'
+
+# jquery
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
