@@ -5,28 +5,28 @@
     <%= render "devise/shared/error_messages", resource: resource %>
     
     <div class="form-labels">
-      <div class="field">
+      <div class="post_field">
         <%= f.label :name %><br />
-        <%= f.text_field :name, autocomplete: "name" %>
+        <%= f.text_field :name, autocomplete: "name", :class => "form-control", :placeholder => "名前を入力してください(必須)" %>
       </div>
 
-      <div class="field">
+      <div class="post_field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" , :class => "form-control", :placeholder => "メールアドレスを入力してください(必須)" %>
       </div>
 
-      <div class="field">
+      <div class="post_field">
         <%= f.label :パスワード %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.password_field :password, autocomplete: "new-password", :class => "form-control", :placeholder => "パスワードを入力してください(必須)" %>
       </div>
 
-      <div class="field">
+      <div class="post_field">
         <%= f.label :'パスワード(確認)' %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control", :placeholder => "パスワード(確認)を入力してください(必須)" %>
       </div>
 
       <div class="actions">
-        <input type="submit" name="commit" class="btn btn-primary" data-disable-with="新規登録" value="新規登録">
+        <input type="submit" name="commit" class="btn btn-primary" data-disable-with="FEを始める" value="FEを始める">
       </div>
     </div>
 
