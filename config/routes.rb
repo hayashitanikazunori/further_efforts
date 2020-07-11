@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   resources :follow_relationships, only: [:create, :destroy]
   resources :posts do
     resources :comments, only: [:create]
-    resources :likes, only: [:create, :destroy]
+    resources :likes, only: [:create]
+    resource :like, only: [:destroy]
   end
 
   root to: "tops#index"
