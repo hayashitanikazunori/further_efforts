@@ -40,19 +40,6 @@ class User < ApplicationRecord
       .sum(:span)
   end
 
-  def week_total_test
-    today = Date.current
-    Post.group(:kind) # kindでグループ化
-      .where(created_at: today.in_time_zone.all_week) # 今週の投稿のみで絞り込み
-      .order("sum(span) desc") # spanカラムを合計してそれを降順に並び替える
-  end
-
-  # カラムごとの全ての学習時間の合計
-  def whole_period_total
-    whole_period_total = Post.group(:kind)
-    .sum(:span)
-  end
-
   # すでにいいねをしているかを調べる
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
