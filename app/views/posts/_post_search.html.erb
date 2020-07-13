@@ -1,0 +1,19 @@
+    <%= search_form_for q do |f| %>
+      <%= f.label :kind_in, "言語" %>
+      <%= f.radio_button 'kind_in', '', {:checked => true} %>指定なし
+      <%= f.radio_button :kind_in, 'JavaScript' %>JavaScript
+      <%= f.radio_button :kind_in, 'Ruby' %>Ruby
+      <%= f.radio_button :kind_in, 'Python' %>Python
+      <%= f.radio_button :kind_in, 'Go' %>Go
+      <%= f.radio_button :kind_in, 'Swift' %>Swift
+      <%= f.radio_button :kind_in, 'C++' %>C++
+      <%= f.radio_button :kind_in, 'C#' %>C#
+      <%= f.radio_button :kind_in, 'PHP' %>PHP
+      <%= f.radio_button :kind_in, 'Scala' %>Scala
+      <%= f.radio_button :kind_in, 'Kotlin' %>Kotlin
+      <%= f.radio_button :kind_in, 'Java' %>Java
+
+      <%= f.label :user_name_cont, "名前検索"%>
+      <%= f.search_field :user_name_cont %>
+      <%= f.submit "検索" %>
+    <% end %>
