@@ -21,7 +21,10 @@
 @import "slick-theme";
 @import "slick";
 
-// flash
+body {
+  font-family: 'PT Sans', sans-serif;
+  background-color: #f1f1f1;
+}
 
 // ログイン画面
 .container-login {
@@ -43,6 +46,11 @@
   color: black;
 }
 
+// フォントを黒にしてアンダーバーを消す
+.font_brack {
+  color: black;
+}
+
 // ボタンの下線を消す
 .btn-decoration {
   text-decoration: none;
@@ -56,4 +64,9 @@
 // ページネーション
 .pagination {
   justify-content: center;
+}
+
+// フッター
+footer {
+  text-align: center;
 }

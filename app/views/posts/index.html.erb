@@ -1,46 +1,52 @@
 <div class="post_heder">
-  <div class="post_page_nation_header">
-    <%= paginate(@posts) %>
-  </div>
-  <div class="post_search">
+  <h1>みんなの努力の掲示板</h1>
+  <h3>さぁ、あなたも投稿して応援してもらおう！</h3>
+  <button type="button" onclick="location.href='/posts/new'" class="btn btn-primary btn-lg btn-block">投稿してみる</button>
+  <%# <div class="post_search">
     <p>検索一覧を表示させる</p>
-  </div>
+  </div> %>
 </div>
 <div class="post_container">
   <% @posts.each do |post| %>
     <div class="post_box_fream">
-      <div class="post_box">
-        <div class="post_user_profile">
-          <div class="post_user_avatar">
-            <%= render partial: "shares/user_avatar", locals: {user: post.user} %>
+      <a href="/posts/<%= post.id %>" class="font_brack">
+        <div class="post_box btn paper-raise">
+          <div class="post_user_profile">
+            <ul>
+              <li>
+                <%= render partial: "shares/user_avatar", locals: {user: post.user} %>
+              </li>
+              <li>
+                <%= post.user.name %>
+              </li>
+            </ul>
           </div>
-          <div class="post_user_name">
-            <%= link_to "#{post.user.name}", user_path(post.user_id), :class => "linkbtn" %>
+          <ul>
+            <li>
+              <label>学習言語</label><br>
+              <%= post.kind %>
+            </li>
+            <li>
+              <label>メモ</label><br>
+              <%= post.body %>
+            </li>
+            <li>
+              <label>学習時間</label><br>
+              <%= post.span / 60 %>時間<%= post.span % 60 %>分
+            </li>
+            <li>
+              <label>累計学習時間(<%= post.kind %>)</label><br>
+              <%= post.span_total / 60 %>時間<%= post.span_total % 60 %>分
+            </li>
+          </ul>
+          <div class="post_edit_destroy_btn">
+            <%= render partial: "shares/post_action", locals: {post: post} %>
+          </div>
+          <div class="post_like_btn" id="like_bottons_<%= post.id %>">
+            <%= render partial: "shares/likeform", locals: {post: post} %>  
           </div>
         </div>
-        <div class="post_box_forms">
-          <label>学習言語</label><br>
-          <p><%= link_to "#{post.kind}", post_path(post.id), :class => "linkbtn" %></p>
-        </div>
-        <div class="post_box_forms">
-          <label>メモ</label><br>
-          <%= post.body %>
-        </div>
-        <div class="post_box_forms">
-          <label>学習時間</label><br>
-          <%= post.span / 60 %>時間<%= post.span % 60 %>分
-        </div>
-        <div class="post_box_forms">
-          <label>累計学習時間(<%= post.kind %>)</label><br>
-          <%= post.span_total / 60 %>時間<%= post.span_total % 60 %>分
-        </div>
-        <div class="post_edit_destroy_btn">
-          <%= render partial: "shares/post_action", locals: {post: post} %>
-        </div>
-        <div class="post_like_btn" id="like_bottons_<%= post.id %>">
-          <%= render partial: "shares/likeform", locals: {post: post} %>  
-        </div>
-      </div>
+      </a>
     </div>
   <% end %>
 </div>
