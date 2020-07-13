@@ -60,6 +60,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry-rails'
   gem 'rb-readline'
+  gem 'bullet'
 end
 
 group :development do
