@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_action :current_user_authenticate, only: [:edit, :destroy, :update]
 
   def index
-    @posts = Post.all.page(params[:page]).per(5)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).page(params[:page]).per(5)
   end
 
   def show

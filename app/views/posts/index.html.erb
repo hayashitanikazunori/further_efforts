@@ -2,9 +2,14 @@
   <h1>みんなの努力の掲示板</h1>
   <h3>さぁ、あなたも投稿して応援してもらおう！</h3>
   <button type="button" onclick="location.href='/posts/new'" class="btn btn-primary btn-lg btn-block">投稿してみる</button>
-  <%# <div class="post_search">
-    <p>検索一覧を表示させる</p>
-  </div> %>
+  <div class="post_search">
+    <%= search_form_for @q do |f| %>
+      <%= f.label :kind_cont, "Keyword" %>
+      <%= f.search_field :kind_cont %>
+
+      <%= f.submit "検索" %>
+    <% end %>
+  </div>
 </div>
 <div class="post_container">
   <% @posts.each do |post| %>
