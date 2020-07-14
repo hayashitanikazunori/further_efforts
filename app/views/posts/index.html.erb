@@ -2,9 +2,7 @@
   <h1>みんなの努力の掲示板</h1>
   <h3>さぁ、あなたも投稿して応援してもらおう！</h3>
   <button type="button" onclick="location.href='/posts/new'" class="btn btn-primary btn-lg btn-block">投稿してみる</button>
-  <div class="post_search">
-    <%= render partial: 'post_search', locals: {q: @q} %>
-  </div>
+  <%= render partial: 'post_search', locals: {q: @q} %>
 </div>
 <div class="post_container">
   <% @posts.each do |post| %>
