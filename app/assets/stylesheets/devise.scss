@@ -2,6 +2,14 @@
   width: 50%;
   margin: 10px auto;
   padding: 10px 50px;
+  .text_field {
+    padding: 6px 12px;
+    font-size: 20px;
+    font-weight: 400;
+    background-color: rgb(219, 219, 219);
+    border: 1px solid rgb(90, 90, 90);
+    border-radius: 5px;
+  }
 }
 
 // 見出し

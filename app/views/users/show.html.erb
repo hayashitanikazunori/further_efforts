@@ -22,30 +22,27 @@
 
   <%# postが実装完了次第表示させる %>
   <div class="learning-profile">
-    <%# @user.week_total.each do |kind| %>
-    <%# @user.week_total.each do |week| %>
-    <%# @user.whole_period_total.each do |whole| %>
-    <div class="card border-secondary mb-3">
-      <div class="card-header">
-        <h3><%#= week %></h3>
+    <% @user.total_and_counts.each do |total_and_count| %>
+      <div class="card border-secondary mb-3">
+        <div class="card-header">
+          <h3><%= total_and_count[0] %></h3>
+        </div>
+        <div class="card-body">
+          <div class="card-body-colum">
+            <p class="card-text">今週の学習時間</p>
+            <h5 class="card-title"><%= total_and_count[2] / 60 %>時間<%= total_and_count[2] % 60 %>分</h5>
+          </div>
+          <div class="card-body-colum">
+            <p class="card-text">今までの累計学習時間</p>
+            <h5 class="card-title"><%= total_and_count[1] / 60 %>時間<%= total_and_count[1] % 60 %>分</h5>
+          </div>
+          <div class="card-body-colum">
+            <p class="card-text">投稿した回数</p>
+            <h5 class="card-title"><%= total_and_count[3] %></h5>
+          </div>
+        </div>
       </div>
-      <div class="card-body">
-        <div class="card-body-colum">
-          <p class="card-text">今週の学習時間</p>
-          <h5 class="card-title"><%#= week[1] / 60 %>時間<%#= week[1] % 60 %>分</h5>
-        </div>
-        <div class="card-body-colum">
-          <p class="card-text">今までの累計学習時間</p>
-          <h5 class="card-title"><%#= whole %></h5>
-        </div>
-        <div class="card-body-colum">
-          <p class="card-text">投稿した回数</p>
-          <h5 class="card-title"><%#= @post_count(span) %></h5>
-        </div>
-      </div>
-    </div>
-    <%# end %>
-    <%# end %>
+    <% end %> 
   </div>
   <div class="user_posts">
   <h3>過去の投稿</h3>

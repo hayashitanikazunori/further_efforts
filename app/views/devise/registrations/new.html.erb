@@ -7,22 +7,22 @@
     <div class="form-labels">
       <div class="post_field">
         <%= f.label :name %><br />
-        <%= f.text_field :name, autocomplete: "name", :class => "form-control", :placeholder => "名前を入力してください(必須)" %>
+        <%= f.text_field :name, autocomplete: "name", :class => "text_field", :placeholder => "名前を入力してください(必須)" %>
       </div>
 
       <div class="post_field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" , :class => "form-control", :placeholder => "メールアドレスを入力してください(必須)" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" , :class => "text_field", :placeholder => "メールアドレスを入力してください(必須)" %>
       </div>
 
       <div class="post_field">
         <%= f.label :パスワード %><br />
-        <%= f.password_field :password, autocomplete: "new-password", :class => "form-control", :placeholder => "パスワードを入力してください(必須)" %>
+        <%= f.password_field :password, autocomplete: "new-password", :class => "text_field", :placeholder => "パスワードを入力してください(必須)" %>
       </div>
 
       <div class="post_field">
         <%= f.label :'パスワード(確認)' %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control", :placeholder => "パスワード(確認)を入力してください(必須)" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "text_field", :placeholder => "パスワード(確認)を入力してください(必須)" %>
       </div>
 
       <div class="actions">
