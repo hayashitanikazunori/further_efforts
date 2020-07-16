@@ -1,23 +1,25 @@
 <div class="conotent">
   <div class="user_profile">
     <div class="user_image">
-      <%= render partial: "shares/user_avatar", locals: {user: @user} %>
+      <% if @user.avatar.blank? %>
+        <%= image_tag 'default.png', :class => "avatar_image_200" %>
+      <% else %>
+        <%= image_tag @user.avatar, :class => 'avatar_image_200' %>
+      <% end %>
     </div>
     <div class="user_name">
-      <%= link_to "#{@user.name}", "/users/edit", :class => 'user_name_p' %>
+      <h1><%= @user.name %></h1>
+      <% if @user.id == current_user.id %>
+        <%= link_to "/users/edit", :class => "edit_btn" do %>
+          <i class="far fa-edit action-btn"></i>
+        <% end %>
+      <% end %>
     </div>
-    <div class="user_somehistory">
-      <%# <p>エンジニア歴</p> # 導入するか検討%>
-      <p><%= link_to "フォロー(#{@user.followings.count})", followings_user_path(@user), :class => 'user_somehistory_p' %></p>
-      <p><%= link_to "フォロアー(#{@user.followers.count})", followers_user_path(@user), :class => 'user_somehistory_p' %></p>
-      <p>いいねした数</p>
+    <div class="user_follow">
+      <span class>フォロー<%=@user.followings.count %></span>
+      <span>フォロワー<%=@user.followers.count %></span>
     </div>
     <%= render partial: "follow_form", locals: {user: @user} %>
-  </div>
-  
-  <%# カレンダーが実装完了次第表示させる %>
-  <div class="calender">
-   <p>カレンダーを表示</p>
   </div>
   <div class="tabs">
     <input id="user_learning" type="radio" name="tab_item" checked>

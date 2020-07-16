@@ -2,65 +2,99 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-// ユーザープロファイル
 .user_profile {
-  width: 50%;
-  height: 300px;
-  background-color: rgb(255, 215, 140);
-  display: inline-block;
-  padding: 20px 30px 20px 200px;
-  .user_image {
-    width: 30%;
-    height: 100px;
-    float: left;
-  }
+  width: 70%;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
   .user_name {
-    width: 70%;
-    height: 100px;
-    padding: 20px 0 0 10px;
-    float: right;
-    .user_name_p {
-      color: black;
-      border: solid 1px slategray;
+    position: relative;
+    .edit_btn {
+      position: absolute;
+      top: 15px;
+      right: 300px;
+      color: rgb(170, 170, 170);
+    }
+  }
+  .user_follow {
+    margin: 5px 0;
+    span {
+      margin-left: 5px;
       font-size: 20px;
     }
   }
-  .user_somehistory {
-    padding: 10px 50px;
-    .user_somehistory_p {
-      color: black;
-    }
+  .learning-profile {
+    text-align: center;
+  }
+  .user_posts {
+    text-align: center;
   }
 }
 
-// カレンダー
-.calender {
-  width: 50%;
-  height: 300px;
-  background-color: rgb(221, 248, 145);
-  // display: inline-block;
-  float : right;
+/*タブ切り替え全体のスタイル*/
+.tabs {
+  margin-top: 50px;
+  padding-bottom: 40px;
+  background-color: #f1f1f1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 95%;
+  margin: 0 auto;}
+
+/*タブのスタイル*/
+.tab_item {
+  width: calc(100%/4);
+  height: 50px;
+  border-bottom: 3px solid #2580B3;
+  background-color: #d9d9d9;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: #535353;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.tab_item:hover {
+  opacity: 0.75;
 }
 
-// 学習内容
-.learning-profile {
-  text-align: center;
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+  display: none;
 }
 
-// ユーザー投稿一覧
-.user_posts {
-  text-align: center;
-  // 後で消すこと
-  .user_posts_p {
-    color: black;
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  display: none;
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+}
+
+
+/*選択されているタブのコンテンツのみを表示*/
+#user_learning:checked ~ #user_learning_content,
+#user_posted:checked ~ #user_posted_content,
+#user_following:checked ~ #user_following_content,
+#user_follower:checked ~ #user_follower_content {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.tabs input:checked + .tab_item {
+  background: radial-gradient(#CBBACC, #2580B3);
+  color: rgb(231, 231, 231);
+  text-shadow: 1px 1px 2px rgb(61, 61, 61);
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  .card-texts {
+    margin-bottom: 0;
   }
-}
-
-// いいねしたところ
-.user_likes {
-  text-align: center;
-  // 後で消すこと
-  .user_likes_p {
-    color: black;
+  .card-title {
+    text-align: center;
   }
 }

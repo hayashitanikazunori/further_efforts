@@ -42,10 +42,6 @@ body {
   @extend .alert-danger;
 }
 
-.linkbtn {
-  color: black;
-}
-
 // フォントを黒にしてアンダーバーを消す
 .font_brack {
   color: black;
@@ -59,6 +55,17 @@ body {
 .action-btn {
   color: blue($color: #698ab6);
   font-size: 20px;
+}
+
+.avatar_image_70 {
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+}
+.avatar_image_200 {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
 }
 
 // ページネーション
