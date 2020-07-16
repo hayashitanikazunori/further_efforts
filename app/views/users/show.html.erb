@@ -19,35 +19,37 @@
   <div class="calender">
    <p>カレンダーを表示</p>
   </div>
-
-  <%# postが実装完了次第表示させる %>
-  <div class="learning-profile">
-    <% @user.total_and_counts.each do |total_and_count| %>
-      <div class="card border-secondary mb-3">
-        <div class="card-header">
-          <h3><%= total_and_count[0] %></h3>
-        </div>
-        <div class="card-body">
-          <div class="card-body-colum">
-            <p class="card-text">今週の学習時間</p>
-            <h5 class="card-title"><%= total_and_count[2] / 60 %>時間<%= total_and_count[2] % 60 %>分</h5>
-          </div>
-          <div class="card-body-colum">
-            <p class="card-text">今までの累計学習時間</p>
-            <h5 class="card-title"><%= total_and_count[1] / 60 %>時間<%= total_and_count[1] % 60 %>分</h5>
-          </div>
-          <div class="card-body-colum">
-            <p class="card-text">投稿した回数</p>
-            <h5 class="card-title"><%= total_and_count[3] %></h5>
-          </div>
-        </div>
+  <div class="tabs">
+    <input id="user_learning" type="radio" name="tab_item" checked>
+    <label class="tab_item" for="user_learning">学習進捗</label>
+    <input id="user_posted" type="radio" name="tab_item">
+    <label class="tab_item" for="user_posted">過去の投稿</label>
+    <input id="user_following" type="radio" name="tab_item">
+    <label class="tab_item" for="user_following">フォロー</label>
+    <input id="user_follower" type="radio" name="tab_item">
+    <label class="tab_item" for="user_follower">フォロワー</label>
+    <div class="tab_content" id="user_learning_content">
+      <div class="tab_content_description">
+        <%= render partial: "user_learning_profile", locals: {user: @user} %>
       </div>
-    <% end %> 
-  </div>
-  <div class="user_posts">
-  <h3>過去の投稿</h3>
-    <%= render partial: "shares/posts_box", locals: {posts: @user.posts} %>
+    </div>
+    <div class="tab_content" id="user_posted_content">
+      <div class="tab_content_description">
+        <%= render partial: "shares/posts_box", locals: {posts: @user.posts} %>
+      </div>
+    </div>
+    <div class="tab_content" id="user_following_content">
+      <div class="tab_content_description">
+        <%= render partial: "follow_view", locals: {user: @user, follow_do: @user.followers} %>
+      </div>
+    </div>
+    <div class="tab_content" id="user_follower_content">
+      <div class="tab_content_description">
+        <%= render partial: "follow_view", locals: {user: @user, follow_do: @user.followings} %>
+      </div>
+    </div>
   </div>
 </div>
 
 <%= render "shares/footer" %>
+
