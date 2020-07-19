@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
   # アクティブストレージでuserのavatarと命名
   has_one_attached :avatar
