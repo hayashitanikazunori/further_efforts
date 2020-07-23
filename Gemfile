@@ -43,14 +43,21 @@ gem 'uglifier'
 gem 'bootstrap'
 gem 'devise-bootstrap-views', '~> 1.0'
 
-# kaminari
+# kaminari introduced
 gem 'kaminari'
 
-# jquery
+# jquery introduced
 gem 'jquery-rails'
 
-# ransack
+# ransack introduced
 gem 'ransack'
+
+# twitter Facebook Google login introduced
+gem 'config' # 定数管理をするgem
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

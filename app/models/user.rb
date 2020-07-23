@@ -12,7 +12,9 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         # 外部APIのomniauthableモジュールを追加
+         :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
 
   # アクティブストレージでuserのavatarと命名
   has_one_attached :avatar
@@ -60,5 +62,23 @@ class User < ApplicationRecord
   # ユーザーのフォローを解除する
   def unfollow(other_user)
     self.following_relationships.find_by(following_id: other_user.id).destroy
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+    end
+  end
+
+  def self.new_with_session(_, session)
+    super.tap do |user|
+      if (data = session['devise.omniauth_data'])
+        user.email = data['email'] if user.email.blank?
+        user.provider = data['provider'] if data['provider'] && user.provider.blank?
+        user.uid = data['uid'] if data['uid'] && user.uid.blank?
+        user.skip_confirmation!
+      end
+    end
   end
 end
