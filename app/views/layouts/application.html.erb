@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://kit.fontawesome.com/e3b20444e1.js" crossorigin="anonymous"></script>
   </head>
@@ -23,7 +22,7 @@
       </button>
 
       <div class="navbar-collapse collapse" id="navbarColor01" style="">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto navbar-right">
           <% if user_signed_in? %>
             <li class="nav-item">
               <a class="nav-link" href="/posts">投稿一覧</a>
@@ -38,7 +37,7 @@
             <%= link_to "#{current_user.name}", "/users/#{current_user.id}", :class => 'nav-link' %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/users/sign_out">ログアウト</a>
+              <a class="nav-link" href="/users/sign_out" onclick="return confirm('本当にログアウトしますか？')">ログアウト</a>
             </li>
           <% else %>
             <li class="nav-item">
@@ -55,10 +54,6 @@
             </li>
           <% end %>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     </nav>
     <%= render partial: "shares/flash_messages" %>

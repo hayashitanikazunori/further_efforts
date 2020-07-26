@@ -14,7 +14,7 @@
  *= require_self
  */
 
-//  bootstrapのスタイルシートを読み込ませる
+// bootstrapのスタイルシートを読み込ませる
 @import "bootstrap";
 @import "bootstrap/scss/bootstrap";
 
@@ -45,6 +45,11 @@ body {
 // フォントを黒にしてアンダーバーを消す
 .font_brack {
   color: black;
+}
+
+// ナビバー
+.navbar-right {
+  float: right !important;
 }
 
 // ボタンの下線を消す

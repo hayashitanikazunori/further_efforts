@@ -6,7 +6,8 @@
 //= require_tree .
 
 // topのスライドページのJavaScript
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener("turbolinks:load",
+function() {
   $(function() {
     $('.slides').slick({
       dots: true,
@@ -14,4 +15,4 @@ document.addEventListener("turbolinks:load", function() {
       autoplaySpeed: 2000,
     });
   });
-})
+});

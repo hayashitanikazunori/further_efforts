@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
+         :recoverable, :rememberable, :validatable, :confirmable,
          # 外部APIのomniauthableモジュールを追加
          :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
 
