@@ -4,12 +4,12 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="post_field">
       <%= f.label :メールアドレス %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control", :placeholder => "メールアドレスを入力してください(必須)" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", :id => "email", :class => "form-control", :placeholder => "メールアドレスを入力してください(必須)" %>
     </div>
 
     <div class="post_field">
       <%= f.label :パスワード %><br />
-      <%= f.password_field :password, autocomplete: "current-password", :class => "form-control", :placeholder => "パスワードを入力してください(必須)" %>
+      <%= f.password_field :password, autocomplete: "current-password", :id => "password", :class => "form-control", :placeholder => "パスワードを入力してください(必須)" %>
     </div>
 
     <div class="actions">
