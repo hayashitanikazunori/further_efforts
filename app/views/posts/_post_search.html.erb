@@ -1,10 +1,13 @@
-<div class="post_search">
-  <%= search_form_for q, class: "post_search"  do |f|%>
-    <%= f.label :kind_in, "言語" %>
-    <%= f.select :kind_in, options_for_select(Post.kinds.keys), {include_blank: '指定する'}, {onclick: "return false;", onchange: ""} %>
-    <%= f.label :user_name_cont, "名前検索"%>
-    <%= f.search_field :user_name_cont %>
-    <%= f.submit "検索" %>
+  <%= search_form_for q do |f|%>
+    <ul>
+      <li>
+        <%= f.select :kind_in, options_for_select(Post.kinds.keys), {include_blank: '言語選択'}, {onclick: "return false;", onchange: "", class: "custom-select"} %>
+      </li>
+      <li>
+        <%= f.search_field :user_name_cont, :placeholder => "名前で検索する", :class => "form-control" %>
+      </li>
+      <li>
+        <%= f.submit "検索", :class => "btn btn-secondary" %>
+      </li>
+    </ul>
   <% end %>
-</div>
-<div>

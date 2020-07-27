@@ -2,7 +2,6 @@
   width: 70%;
   height: 500px;
   margin: 10px 200px;
-  background-color: teal;
 
   .post_show_userprofile {
     width: 30%;
@@ -10,16 +9,15 @@
     float: left;
     padding-top: 150px;
     text-align: center;
-    background-color: yellow;
-    .posts_user_avatar {
-      margin-bottom: 20px;
-    }
-    .post_user_name {
-      margin-top: 20px;
-      font-size: 30px;
+    ul {
+      border: solid 1px black;
+      list-style: none;
+      li {
+        font-size: 20px;
+      }
     }
   }
-  
+
   .post_show_postprofile {
     width: 70%;
     height: 100%;

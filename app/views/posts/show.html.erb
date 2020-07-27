@@ -1,11 +1,19 @@
 <div class="post_show_container">
   <div class="post_show_userprofile">
-    <div class="post_user_avatar">
-      <%= render partial: "shares/user_avatar", locals: {user: @post.user} %>
-    </div>
-    <div class="post_user_name">
-      <%= link_to @post.user.name, user_path(@post.user), :class => "btn-decoration" %>
-    </div>
+    <a href="/users/<%= @post.user_id %>" class="font_brack">
+      <ul>
+        <li>
+          <% if @post.user.avatar.blank? %>
+            <%= image_tag 'default.png', :class => "avatar_image_100" %>
+          <% else %>
+            <%= image_tag @post.user.avatar, :class => 'avatar_image_100' %>
+          <% end %>
+        </li>
+        <li>
+          <%= @post.user.name %>
+        </li>
+      </ul>
+    </a>
   </div>
   <div class="post_show_postprofile">
     <div class="post_learning_kind p_show">
@@ -27,7 +35,7 @@
     <div class="post_show_actions">
       <%= render partial: "shares/post_action", locals: {post: @post} %>
     </div>
-    <div class="post_like_btn">
+    <div class="post_like_btn" id="like_bottons_<%= @post.id %>">
       <%= render partial: "shares/likeform", locals: {post: @post} %>  
     </div>
     <div class="post_created_at">
@@ -35,7 +43,7 @@
     </div>
   </div>
 </div>
-<div class ="post_liked_users">
+<div class ="post_liked_users" id="like_bottons_<%= @post.id %>">
   <%= render partial: "shares/likeduser", locals: {post: @post} %>
 </div>
 <div class="post_comments">

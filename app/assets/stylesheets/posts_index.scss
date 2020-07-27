@@ -2,7 +2,19 @@
   width: 50%;
   margin: 10px auto;
   text-align: center;
-
+  .post_search{
+    height: 70px;
+    .btn {
+      width: 70px;
+    }
+    ul {
+      list-style: none;
+      li {
+        margin: 0 10px;
+        float: left;
+      }
+    }
+  }
 }
 
 .post_container {
