@@ -43,6 +43,12 @@ class User < ApplicationRecord
     total_spans.map.with_index {|total_span, i| total_span.push(week_total_spans.fetch(total_span[0], 0), total_counts[i])}
   end
 
+  def week_all_total_spans
+    today = Date.current
+    week_all_total_spans = Post.where(user_id: self.id, created_at: today.in_time_zone.all_week)
+    return week_all_total_spans.sum(:span)
+  end
+
   # すでにいいねをしているかを調べる
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)

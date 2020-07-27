@@ -16,8 +16,8 @@
       <% end %>
     </div>
     <div class="user_follow">
-      <span class>フォロー<%=@user.followings.count %></span>
-      <span>フォロワー<%=@user.followers.count %></span>
+      <span class>フォロー<%= @user.followings.count %></span>
+      <span>フォロワー<%= @user.followers.count %></span>
     </div>
     <%= render partial: "follow_form", locals: {user: @user} %>
   </div>

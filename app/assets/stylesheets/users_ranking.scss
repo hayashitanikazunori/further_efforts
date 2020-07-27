@@ -3,24 +3,3 @@
   text-align: center;
   font-size: large;
 }
-
-.user_ranking_container {
-  width: 70%;
-  margin: 0 200px 10px 200px;
-  display: flex;
-  flex-wrap: wrap;
-  .rank_user_name {
-    width: 70%;
-    height: 100%;
-    padding: 20px 0 10px 50px;
-  }
-}
-.user_rank {
-  float: center;
-}
-.posts_user_date {
-  padding-top: 100px;
-}
-.user_week_span {
-  height: 90px;
-}
