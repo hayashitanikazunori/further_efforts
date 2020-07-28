@@ -2,12 +2,12 @@
   <% if current_user.following?(user) %>
     <%= form_with(model: current_user.following_relationships.find_by(following_id: user.id), method: :delete) do |f| %>
       <%= f.hidden_field :following_id %>  
-      <%= f.submit "フォロー済み", class: "btn btn-outline-secondary" %>
+      <%= f.submit "フォロー済み", class: "btn btn-outline-secondary", id: "follow_delete" %>
     <% end %>
   <% else %>
     <%= form_with(model: current_user.following_relationships.build) do |f| %>
       <%= f.hidden_field :following_id, value: user.id %>
-      <%= f.submit "フォローする", class: "btn btn-outline-secondary" %>
+      <%= f.submit "フォローする", class: "btn btn-outline-secondary", id: "follow_create" %>
     <% end %>
   <% end %>
 <% end %>

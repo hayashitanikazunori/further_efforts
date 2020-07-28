@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'posts', type: :system do 
+RSpec.describe '投稿機能', type: :system do 
   let(:user_a) { FactoryBot.create(:user, name: 'test01', email: 'test01@example.com', password: 'password', password_confirmation: "password") }
   let(:user_b) { FactoryBot.create(:user, name: 'test02', email: 'test02@example.com', password: 'password', password_confirmation: "password") }
   let(:post) { FactoryBot.create(:post, kind: 'JavaScript', body: 'test', span: '100', user_id: user_a.id) }
@@ -162,12 +162,6 @@ RSpec.describe 'posts', type: :system do
       it '削除のボタンが表示されない' do
         expect(page).to_not have_content 'delete'
       end
-
-      # it '削除ができずエラー文が表示される' do
-      #   expect {
-      #     delete :destroy, params: {id: @post.id}
-      #   }.to_not change(post, :count)
-      # end
     end
   end
 end

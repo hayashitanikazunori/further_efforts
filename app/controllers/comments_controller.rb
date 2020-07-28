@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
+
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
@@ -16,11 +18,12 @@ class CommentsController < ApplicationController
       id: params[:id],
       post_id: params[:post_id]
     )
-    if @comment.destroy
+    if @comment.user_id == current_user.id
+      @comment.destroy
       flash[:notice] = 'コメントを削除しました。'
       redirect_back(fallback_location: root_path)
     else
-      flash.now[:alert] = 'コメントの削除に失敗しました。'
+      flash.now[:alert] = '権限がありません。'
       redirect_back(fallback_location: root_path)
     end
   end

@@ -8,7 +8,13 @@
     <table class="table table-hover">
       <tr class="table-light">
         <th><%= render partial: "shares/user_avatar", locals: {user: comment.user} %><%= link_to comment.user.name, user_path(comment.user) %> ＞＞ <%= comment.review %></th>
-        <th><%= link_to "削除", post_comment_path(comment.post.id, comment.id), method: :delete %> </th>
+        <th>
+          <% if comment.user_id == current_user.id %>
+            <%= link_to post_comment_path(comment.post.id, comment.id), method: :delete, :id => 'comment_delete', :class => "btn-decoration", :onclick => "return confirm('本当に削除しますか？')" do %>
+              <i class="far fa-trash-alt action-btn"></i>
+            <% end %>
+          <% end %>
+        </th>
       </tr>
     </table>
   <% end %>

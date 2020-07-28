@@ -33,7 +33,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Device
 gem 'devise'
-gem 'omniauth-twitter'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
