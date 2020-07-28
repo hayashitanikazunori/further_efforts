@@ -41,7 +41,7 @@ class PostsController < ApplicationController
     @post.span = params[:time]["post_span(4i)"].to_i * 60 + params[:time]["post_span(5i)"].to_i
     if @post.save
       flash[:notice] = "編集しました"
-      redirect_to "/posts#{params[:id]}"
+      redirect_to "/posts/#{params[:id]}"
     else
       flash.now[:alert] = "編集に失敗しました"
       render("/posts/#{params[:id]}")

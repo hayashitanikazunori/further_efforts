@@ -2,7 +2,7 @@
   <%= link_to edit_post_path(post.id), :class => "btn-decoration" do %>
     <i class="far fa-edit action-btn"></i>
   <% end %>
-  <%= link_to post_path(post.id), method: :delete, :class => "btn-decoration" do %>
+  <%= link_to post_path(post.id), method: :delete, :id => 'delete', :class => "btn-decoration", :onclick => "return confirm('本当にログアウトしますか？')" do %>
     <i class="far fa-trash-alt action-btn"></i>
   <% end %>
 <% end %>
