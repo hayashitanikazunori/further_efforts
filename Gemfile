@@ -67,7 +67,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry-rails'
   gem 'rb-readline'
-  gem 'bullet'
+  # gem 'bullet' # N+1問題ハリボテが終わったら解決に入る
 end
 
 group :development do

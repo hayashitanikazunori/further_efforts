@@ -1,53 +1,25 @@
 <div class="post_show_container">
-  <div class="post_show_userprofile">
-    <a href="/users/<%= @post.user_id %>" class="font_brack">
-      <ul>
-        <li>
-          <% if @post.user.avatar.blank? %>
-            <%= image_tag 'default.png', :class => "avatar_image_100" %>
-          <% else %>
-            <%= image_tag @post.user.avatar, :class => 'avatar_image_100' %>
-          <% end %>
-        </li>
-        <li>
-          <%= @post.user.name %>
-        </li>
-      </ul>
-    </a>
+  <ul class="post_show_user">
+    <li>
+      <% if @post.user.avatar.blank? %>
+        <%= image_tag 'default.png', :class => "avatar_image_150" %>
+      <% else %>
+        <%= image_tag @post.user.avatar, :class => 'avatar_image_150' %>
+      <% end %>
+    </li>
+    <li>
+      <h1><%= @post.user.name %></h1>
+    </li>
+  </ul>
+  <%= render partial: "shares/post_show_box", locals: {post: @post} %>
+  <p class="border"></p>
+  <div class ="post_liked_users" id="show_like_bottons_<%= @post.id %>">
+    <%= render partial: "shares/likeduser", locals: {post: @post} %>
   </div>
-  <div class="post_show_postprofile">
-    <div class="post_learning_kind p_show">
-      <label>学習言語</label><br>
-      <%= @post.kind %>
-    </div>
-    <div class="post_comment p_show">
-      <label>メモ</label><br>
-      <%= @post.body %>
-    </div>
-    <div class="post_learning_time p_show">
-      <label>学習時間</label><br>
-      <%= @post.span / 60 %>時間<%= @post.span % 60 %>分
-    </div>
-    <div class="post_learning_time_total p_show">
-      <label>学習累計時間(<%= @post.kind %>)</label><br>
-      <%= @post.span_total / 60 %>時間<%= @post.span_total % 60 %>分
-    </div>
-    <div class="post_show_actions">
-      <%= render partial: "shares/post_action", locals: {post: @post} %>
-    </div>
-    <div class="post_like_btn" id="like_bottons_<%= @post.id %>">
-      <%= render partial: "shares/likeform", locals: {post: @post} %>  
-    </div>
-    <div class="post_created_at">
-      <p>投稿日時：<%= @post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-    </div>
+  <p class="border"></p>
+  <div class="post_comments">
+    <h4>コメント一覧</h4>
+    <%= render partial: "comment", locals: {comment: @comment, post: @post, comments: @comments} %>
   </div>
-</div>
-<div class ="post_liked_users" id="like_bottons_<%= @post.id %>">
-  <%= render partial: "shares/likeduser", locals: {post: @post} %>
-</div>
-<div class="post_comments">
-  <h4>コメント一覧</h4>
-  <%= render partial: "comment", locals: {comment: @comment, post: @post, comments: @comments} %>
 </div>
 <%= render "shares/footer" %>

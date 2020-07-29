@@ -12,7 +12,7 @@
 </div>
   <div class="top_title">
     <p>Futher Efforts</p>
-    みんなで支え合い、社会の未来を切り開く
+    <span>みんなで支え合い、社会の未来を切り開く</span>
   </div>
 </div>
 
@@ -23,7 +23,9 @@
   <hr class="my-4">
   <p class="lead">
     <a class="btn btn-primary btn-lg" href="/users/sign_in" role="button">さぁ、はじめよう！</a><br>
-    <%= link_to '簡単ログイン', users_guest_sign_in_path, method: :post, :class => "btn btn-primary btn-lg" %>
+    <% unless user_signed_in? %>
+      <%= link_to '簡単ログイン', users_guest_sign_in_path, method: :post, :class => "btn btn-primary btn-lg" %>
+    <% end %>
   </p>
 </div>
 

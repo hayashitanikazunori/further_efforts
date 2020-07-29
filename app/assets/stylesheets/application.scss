@@ -43,13 +43,9 @@ body {
 }
 
 // フォントを黒にしてアンダーバーを消す
-.font_brack {
-  color: black;
-}
-
-// ナビバー
-.navbar-right {
-  float: right !important;
+.link_reset {
+  color: #445e80;
+  text-decoration: none !important;
 }
 
 // ボタンの下線を消す
@@ -70,6 +66,11 @@ body {
 .avatar_image_100 {
   width:  100px;
   height: 100px;
+  border-radius: 5px;
+}
+.avatar_image_150 {
+  width:  150px;
+  height: 150px;
   border-radius: 5px;
 }
 .avatar_image_200 {

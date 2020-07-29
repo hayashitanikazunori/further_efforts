@@ -1,0 +1,23 @@
+<div class="card border-secondary mb-3">
+  <div class="card-header">
+    <h1><%= post.kind %></h1>
+  </div>
+  <div class="card-body">
+    <div class="card-body-colum">
+      <p class="card-texts">メモ</p>
+      <h2 class="card-title"><%= post.body %></h2>
+    </div>
+    <div class="card-body-colum">
+      <p class="card-texts">学習時間</p>
+      <h2 class="card-title"><%= post.span / 60 %>時間<%= post.span % 60 %>分</h2>
+    </div>
+    <div class="card-body-colum">
+      <p class="card-texts">累計学習時間</p>
+      <h2 class="card-title"><%= post.span_total / 60 %>時間<%= post.span_total % 60 %>分</h2>
+    </div>
+    <div class="card-body-colum">
+      <p class="card-texts">投稿日時</p>
+      <h2 class="card-title"><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></h2>
+    </div>
+  </div>
+</div>

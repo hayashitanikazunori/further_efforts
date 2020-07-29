@@ -1,8 +1,31 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@media screen and (max-width:480px) {
+  // 画面幅が480pxまでの時
+  p {
+    font-size: 10px;
+  }
+  .top_title {
+    position: static;
+    left: 0 !important;
+    span {
+      display: none;
+    }
+  }
+}
 
-.most_top{ //トップページのスライド部分
+@media screen and (max-width:780px) {
+  .top_title {
+    position: static;
+    left: 0 !important;
+    // span {
+    //   display: none;
+    // }
+  }
+}
+
+.most_top{
   position: relative;
 
   .top_title {
@@ -13,10 +36,11 @@
     left: 18%;
     font-size: 50px;
     p {
-      font-size: 100PX;
+      font-size: 100px;
     }
   }
 }
+
 .slides {
   width: 100%;
 }
