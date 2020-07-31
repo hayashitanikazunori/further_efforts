@@ -1,11 +1,11 @@
 <div class="show_like_btn">
   <% if current_user.already_liked?(post) %>
     <%= link_to post_like_path(post.id), method: :delete, remote: true, :id => "like_delete",:class => "btn-decoration" do%>
-      <button class="btn btn-outline-secondary">フォロー済み</button>
+      <button class="btn btn-outline-secondary">いいね！済み</button>
     <% end %>
   <% else %>
     <%= link_to post_likes_path(post.id), method: :post, remote: true, :id => "like_create", :class => "btn-decoration" do%>
-      <button class="btn btn-outline-secondary">フォローする</button>
+      <button class="btn btn-outline-secondary">いいね！</button>
     <% end %>
   <% end %>
 </div>

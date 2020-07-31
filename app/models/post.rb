@@ -4,17 +4,14 @@ class Post < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   has_many :comments
 
-  # バリデーション
   validates :kind, presence: true
   validates :body, presence: true, length: { maximum: 30 }
-  validates :span, presence: true
+  validates :span, presence: true, numericality: { only_integer: true, other_than: 0 }
 
-  # userモデルの関連付け
   def user
     return User.find_by(id: self.user_id)
   end
 
-  # kindカラム毎の合計時間算出
   def span_total
     total = Post.where(
       kind: self.kind,
@@ -23,7 +20,6 @@ class Post < ApplicationRecord
     return total.sum(:span)
   end
 
-  # form_with selectの配列
   enum kind: {
     JavaScript: "JavaScript",
     Ruby: "Ruby",
@@ -37,5 +33,4 @@ class Post < ApplicationRecord
     Kotlin: "Kotlin",
     Java: "Java",
   }, _prefix: true
-
 end

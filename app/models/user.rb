@@ -1,11 +1,8 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
   has_many :comments
-  # フォロー機能の設定
   has_many :following_relationships,foreign_key: "follower_id", class_name: "FollowRelationship", dependent: :destroy
   has_many :followings, through: :following_relationships
   has_many :follower_relationships,foreign_key: "following_id", class_name: "FollowRelationship", dependent: :destroy
@@ -13,14 +10,12 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
-         # 外部APIのomniauthableモジュールを追加
          :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
 
-  # アクティブストレージでuserのavatarと命名
+  validates :name, presence: true, length: { in: 1..20 }
+
   has_one_attached :avatar
-
-  validates :name, presence: true
-
+  
   def posts
     return Post.where(user_id: self.id)
   end
@@ -33,7 +28,6 @@ class User < ApplicationRecord
     return total.sum(:span)
   end
 
-  # user/showで学習言語ごとの情報を返す
   def total_and_counts
     today = Date.current
     
@@ -49,23 +43,18 @@ class User < ApplicationRecord
     return week_all_total_spans.sum(:span)
   end
 
-  # すでにいいねをしているかを調べる
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
 
-  # フォロー関連のメソッド
-  #  すでにフォロー済みであればtrueを返す
   def following?(other_user)
     self.followings.include?(other_user)
   end
 
-  # ユーザーのフォローをできるメソッド
   def follow(other_user)
     self.following_relationships.create(following_id: other_user.id)
   end
 
-  # ユーザーのフォローを解除する
   def unfollow(other_user)
     self.following_relationships.find_by(following_id: other_user.id).destroy
   end
