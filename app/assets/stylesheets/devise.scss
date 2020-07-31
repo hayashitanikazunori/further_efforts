@@ -1,16 +1,7 @@
 @media screen and (max-width:480px) {
   // 画面幅が480pxまでの時
   .forms {
-    width: 100%;
-    margin: 10px auto;
-    padding: 10px 50px;
-    .text_field {
-      padding: 6px 12px;
-      font-size: 20px;
-      font-weight: 400;
-      border: 1px solid rgb(90, 90, 90);
-      border-radius: 5px;
-    }
+    width: 100% !important;
   }
 }
 

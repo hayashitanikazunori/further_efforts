@@ -4,50 +4,7 @@
   <button type="button" onclick="location.href='/posts/new'" class="btn btn-primary btn-lg btn-block">投稿してみる</button>
   <%= render partial: 'post_search', locals: {q: @q} %>
 </div>
-<div class="post_container">
-  <% @posts.each do |post| %>
-    <div class="post_box_fream">
-      <a href="/posts/<%= post.id %>" class="font_brack">
-        <div class="post_box btn paper-raise">
-          <div class="post_user_profile">
-            <ul>
-              <li>
-                <%= render partial: "shares/user_avatar", locals: {user: post.user} %>
-              </li>
-              <li>
-                <%= post.user.name %>
-              </li>
-            </ul>
-          </div>
-          <ul>
-            <li>
-              <label>学習言語</label><br>
-              <%= post.kind %>
-            </li>
-            <li>
-              <label>メモ</label><br>
-              <%= post.body %>
-            </li>
-            <li>
-              <label>学習時間</label><br>
-              <%= post.span / 60 %>時間<%= post.span % 60 %>分
-            </li>
-            <li>
-              <label>累計学習時間(<%= post.kind %>)</label><br>
-              <%= post.span_total / 60 %>時間<%= post.span_total % 60 %>分
-            </li>
-          </ul>
-          <div class="post_edit_destroy_btn">
-            <%= render partial: "shares/post_action", locals: {post: post} %>
-          </div>
-          <div class="post_like_btn" id="like_bottons_<%= post.id %>">
-            <%= render partial: "shares/likeform", locals: {post: post} %>  
-          </div>
-        </div>
-      </a>
-    </div>
-  <% end %>
-</div>
+<%= render partial: "posts_index_box", locals: {posts: @posts} %>
 <div class="post_fotter">
   <div class="page_nation_fotter">
     <%= paginate(@posts) %>

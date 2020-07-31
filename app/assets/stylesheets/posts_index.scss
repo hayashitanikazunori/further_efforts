@@ -2,6 +2,19 @@
   // 画面幅が480pxまでの時
   .post_heder {
     width: 90% !important;
+    .post_search {
+      padding-top: 0 !important;
+      padding-left: 0 !important;
+      margin: 0 !important;
+      height: 120px !important;
+      ul {
+        padding-left: 0 !important;
+      }
+      li {
+        float: none !important;
+        margin: 10px 0 !important;
+      }
+    }
   }
   .post_container {
     width: 95%;
@@ -16,9 +29,11 @@
   margin: 10px auto;
   text-align: center;
   .post_search{
-    height: 70px;
+    height: 60px;
+    padding: 10px 0 0 100px;
     .btn {
       width: 70px;
+      margin: 0;
     }
     ul {
       list-style: none;
@@ -41,7 +56,7 @@
 .post_box_fream {
   width: 50%;
   .post_box {
-    height: 350px;
+    height: 365px;
     border: solid 1px black;
     border-radius: 10px;
     a:link, a:visited, a:hover, a:active {
@@ -52,9 +67,19 @@
       padding-left: 0;
       list-style: none;
     }
+    .learning_profile {
+      .adjustment {
+        padding-right: 68px;
+      }
+      li {
+        border-bottom: solid 0.5px;
+        border-color: rgba(44, 44, 44, 5);
+      }
+    }
     label {
       font-size: small;
       margin-bottom: 0;
+      color: rgb(44, 44, 44);
     }
   }
 }
@@ -79,6 +104,17 @@
 }
 .post_like_btn {
   float: right;
+  position: static;
+}
+.post_created_at {
+  position: relative;
+  top: 30px;
+  left: 45px;
+  float: right;
+  p {
+    font-size: 8px;
+    margin-bottom: 0;
+  }
 }
 
 .btn {

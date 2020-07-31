@@ -1,0 +1,47 @@
+<div class="user_posts">
+  <% posts.each do |post| %>
+    <div class="post_box_fream">
+      <a href="/posts/<%= post.id %>" class="font_brack">
+        <div class="post_box btn paper-raise">
+          <div class="post_user_profile">
+            <ul>
+              <li>
+                <%= render partial: "shares/user_avatar", locals: {user: post.user} %>
+              </li>
+              <li>
+                <%= post.user.name %>
+              </li>
+            </ul>
+          </div>
+          <ul>
+            <li>
+              <label>学習言語</label><br>
+              <%= post.kind %>
+            </li>
+            <li>
+              <label>メモ</label><br>
+              <%= post.body %>
+            </li>
+            <li>
+              <label>学習時間</label><br>
+              <%= post.span / 60 %>時間<%= post.span % 60 %>分
+            </li>
+            <li>
+              <label>累計学習時間(<%= post.kind %>)</label><br>
+              <%= post.span_total / 60 %>時間<%= post.span_total % 60 %>分
+            </li>
+          </ul>
+          <div class="post_edit_destroy_btn">
+            <%= render partial: "shares/post_action", locals: {post: post} %>
+          </div>
+          <div class="post_like_btn" id="like_bottons_<%= post.id %>">
+            <%= render partial: "shares/likeform", locals: {post: post} %>  
+          </div>
+          <div class="post_created_at">
+            <p>投稿日時：<%= post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+          </div>
+        </div>
+      </a>
+    </div>
+  <% end %>
+</div>
