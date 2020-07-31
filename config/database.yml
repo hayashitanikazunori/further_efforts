@@ -26,4 +26,7 @@ test:
 
 production:
   <<: *default
-  database: further_efforts_production
+  # database: further_efforts_production
+  adaptrer: postgresql
+  encoding: unicode
+  pool: 5
