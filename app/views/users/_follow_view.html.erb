@@ -1,9 +1,13 @@
 <div class="follows_container">
   <% follow_do.each do |follow| %>
     <table class="table table-hover">
-    <tr class="table-light">
-      <th><%= render partial: "shares/user_avatar", locals: {user: follow} %><%= follow.name %></th>
-    </tr>
-  </table>
+      <tr class="table-light">
+          <th>
+            <a href="/users/<%= follow.id %>" class="link_reset">
+              <%= render partial: "shares/user_avatar", locals: {user: follow} %><%= follow.name %>
+            </a>
+        </th>
+      </tr>
+    </table>
   <% end %> 
 </div>

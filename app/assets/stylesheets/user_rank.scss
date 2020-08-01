@@ -1,0 +1,28 @@
+@media screen and (max-width:480px) {
+  // 画面幅が480pxまでの時
+  .user_rank_container {
+    width: 95%;
+    .post_box_fream {
+      width: 90%;
+    }
+  }
+}
+
+.user_rank {
+  margin-top: 20px;
+  height: 80px;
+  h2 {
+    padding-top: 30px;
+  }
+}
+
+.user_rank_container {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  .post_box {
+    height: 210px;
+  }
+}

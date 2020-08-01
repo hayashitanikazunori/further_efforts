@@ -2,41 +2,5 @@
   <h1>週間ランキング</h1>
   <h3>日頃の努力量で競い合い、高めよう！</h3>
 </div>
-<div class="post_container">
-  <% @rank_user.each.with_index(1) do |user, i| %>
-    <div class="post_box_fream">
-      <div class="user_rank">
-        <% if i == 1 %>
-          <%= image_tag 'rank_top1', :class => 'avatar_image_70' %>
-        <% elsif i == 2 %>
-          <%= image_tag 'rank_top2', :class => 'avatar_image_70' %>
-        <% elsif i == 3 %>
-          <%= image_tag 'rank_top3', :class => 'avatar_image_70' %>
-        <% else %>
-          <h2><%= i %></h2>
-        <% end %>
-      </div>
-      <a href="/users/<%= user.id %>" class="font_brack">
-        <div class="post_box btn paper-raise">
-          <div class="post_user_profile">
-            <ul>
-              <li><%= render partial: "shares/user_avatar", locals: {user: user} %></li>
-              <li><%= user.name %></li>
-            </ul>
-          </div>
-          <ul>
-            <li>
-              <label>今週の学習時間</label><br>
-              <%= user.week_all_total_spans / 60 %>時間<%= user.week_all_total_spans % 60 %>分
-            </li>
-            <li>
-              <label>フォロアー</label><br>
-              <%= user.followers.count %>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  <% end %>
-</div>
+<%= render partial: "user_rank_container", locals: {rank_user: @rank_user} %>
 <%= render "shares/footer" %>

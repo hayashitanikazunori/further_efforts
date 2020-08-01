@@ -75,9 +75,6 @@
       font-size: 20px;
     }
   }
-  .user_posts {
-    text-align: center;
-  }
 }
 
 .learning-profile {
@@ -163,5 +160,20 @@ input[name="tab_item"] {
   }
   .card-title {
     text-align: center;
+  }
+}
+
+.user_posts {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.follows_container {
+  .table {
+    width: 50% !important;
+    margin: 0 auto;
   }
 }
