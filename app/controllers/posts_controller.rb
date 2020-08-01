@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).page(params[:page]).per(6)
+    @posts = @q.result(distinct: true).page(params[:page]).per(6).order('id DESC')
   end
 
   def show
@@ -23,11 +23,10 @@ class PostsController < ApplicationController
     @post.span = params[:time]["post_span(4i)"].to_i * 60 + params[:time]["post_span(5i)"].to_i
     @post.user_id = current_user.id
     if @post.save
-      flash[:notice] = "投稿しました"
-      redirect_to "/posts"
+      redirect_to posts_path, notice: '投稿しました'
     else
       flash.now[:alert] = "投稿に失敗しました"
-      render("posts/new")
+      render :new
     end
   end
 
@@ -40,22 +39,20 @@ class PostsController < ApplicationController
     @post.update(post_params)
     @post.span = params[:time]["post_span(4i)"].to_i * 60 + params[:time]["post_span(5i)"].to_i
     if @post.save
-      flash[:notice] = "編集しました"
-      redirect_to "/posts/#{params[:id]}"
+      redirect_to post_path(@post), notice: '編集しました'
     else
       flash.now[:alert] = "編集に失敗しました"
-      render("/posts/#{params[:id]}")
+      render :edit
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
-      flash[:notice] = "削除しました"
-      redirect_to "/posts"
+      redirect_to posts_path, notice: '削除しました'
     else
       flash.now[:alert] = "削除に失敗しました"
-      render("posts/#{params[:id]}")
+      render :show
     end
   end
 
@@ -67,8 +64,7 @@ class PostsController < ApplicationController
   def current_user_authenticate
     @post = Post.find(params[:id])
     if @post.user_id != current_user.id
-      flash[:notice] = "権限がありません"
-      redirect_to("/posts")
+      redirect_to posts_path, notice: '権限がありません'
     end
   end
 end

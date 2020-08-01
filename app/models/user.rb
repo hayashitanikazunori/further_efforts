@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   
   def posts
-    return Post.where(user_id: self.id)
+    return Post.where(user_id: self.id).order('id DESC')
   end
 
   def span_total
@@ -77,7 +77,6 @@ class User < ApplicationRecord
     end
   end
 
-  # ゲストユーザー
   def self.guest
     find_or_create_by!(name: 'guest', email: 'guset@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
