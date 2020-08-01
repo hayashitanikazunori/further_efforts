@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
-         :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
+         :omniauthable
 
   validates :name, presence: true, length: { in: 1..20 }
 
@@ -53,28 +53,6 @@ class User < ApplicationRecord
 
   def follow(other_user)
     self.following_relationships.create(following_id: other_user.id)
-  end
-
-  def unfollow(other_user)
-    self.following_relationships.find_by(following_id: other_user.id).destroy
-  end
-
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
-    end
-  end
-
-  def self.new_with_session(_, session)
-    super.tap do |user|
-      if (data = session['devise.omniauth_data'])
-        user.email = data['email'] if user.email.blank?
-        user.provider = data['provider'] if data['provider'] && user.provider.blank?
-        user.uid = data['uid'] if data['uid'] && user.uid.blank?
-        user.skip_confirmation!
-      end
-    end
   end
 
   def self.guest

@@ -261,18 +261,6 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  # Facebook.omniauth
-  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'],
-    callback_url: "#{ENV['HOST']}/users/auth/facebook/callback"
-
-  # Twitter.omniauth
-  config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET'],
-    oauth_callback: "#{ENV['HOST']}/users/auth/twitter/callback"
-
-  # Google.omniauth
-  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_IDENV'], ENV['GOOGLE_CLIENT_SECRET'],
-    redirect_uri: "#{ENV['HOST']}/users/auth/google_outh2/callback"
-
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

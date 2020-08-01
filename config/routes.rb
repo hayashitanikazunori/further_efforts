@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'users/ranking'
 
   devise_for :users, controllers: {
-    omniauth_callbacks: 'user/omniauth_callbacks',
+    omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations',
     passwords: 'users/passwords'
   }

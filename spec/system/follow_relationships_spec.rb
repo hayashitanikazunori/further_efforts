@@ -11,8 +11,8 @@ RSpec.describe 'フォロー機能', type: :system do
         sign_in(user_b)
         visit user_path(user_a)
       end
-      # it 'フォローボタンが表示されるか' do
-      #   expect(page).to have_content 'フォローする'  ※もともと表示されていない
+      # it 'フォローボタンが表示されるか' do # ここでエラー
+      #   expect(page).to have_content 'フォローする'  # ※もともと表示されていない
       # end
 
       it 'フォローができるか' do

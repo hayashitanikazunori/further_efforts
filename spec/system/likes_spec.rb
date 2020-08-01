@@ -17,7 +17,7 @@ RSpec.describe 'いいね機能', type: :system do
   #     it 'いいねができるか' do
   #       expect {
   #         click_on 'like_create'
-  #       }.to change(Like, :count).by(1) # エラー文 expected `Like.count` to have changed by 1, but was changed by 0
+  #       }.to have_content "いいね！済み"
   #     end
   #   end
   # end

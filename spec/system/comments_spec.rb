@@ -61,7 +61,6 @@ RSpec.describe 'comments', type: :system do
     #     @comment = comment
     #     sign_in(user_b)
     #     visit post_path(@post)
-
     #   end
     #   it '削除ボタンが表示されない' do
     #     expect(page).to_not have_content ''
