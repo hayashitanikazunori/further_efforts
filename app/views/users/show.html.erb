@@ -42,12 +42,12 @@
     </div>
     <div class="tab_content" id="user_following_content">
       <div class="tab_content_description">
-        <%= render partial: "follow_view", locals: {user: @user, follow_do: @user.followers} %>
+        <%= render partial: "follow_view", locals: {user: @user, follow_do: @user.followings} %>
       </div>
     </div>
     <div class="tab_content" id="user_follower_content">
       <div class="tab_content_description">
-        <%= render partial: "follow_view", locals: {user: @user, follow_do: @user.followings} %>
+        <%= render partial: "follow_view", locals: {user: @user, follow_do: @user.followers} %>
       </div>
     </div>
   </div>

@@ -65,6 +65,10 @@ class User < ApplicationRecord
     self.following_relationships.create(following_id: other_user.id)
   end
 
+  def unfollow(other_user)
+    self.following_relationships.find_by(following_id: other_user.id).destroy
+  end
+
   def self.guest
     find_or_create_by!(name: 'guest', email: 'guset@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
