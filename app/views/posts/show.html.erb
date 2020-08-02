@@ -10,8 +10,8 @@
     <% end %>
   </div>
   <%= render partial: "post_show_box", locals: {post: @post} %>
-  <div class="post_edit_and_delete">
-    <%= render partial: "post_edit_and_destroy", locals: {post: @post} %>
+  <div class="post_edit_and_destroy">
+    <%= render partial: "shares/post_edit_and_destroy", locals: {post: @post} %>
   </div>
   <p class="border"></p>
   <div class ="post_liked_users" id="show_like_bottons_<%= @post.id %>">
