@@ -1,4 +1,4 @@
-<% if @user != current_user%>
+<% if user != current_user%>
   <% if current_user.following?(user) %>
     <%= form_with(model: current_user.following_relationships.find_by(following_id: user.id), method: :delete) do |f| %>
       <%= f.hidden_field :following_id %>  

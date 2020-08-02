@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.span = params[:time]["post_span(4i)"].to_i * 60 + params[:time]["post_span(5i)"].to_i
+    @post.span = params[:time]["post_span(4i)"].to_i * 60 + params[:time]["post_span(5i)"].to_i # ここの修正が必要か？
     @post.user_id = current_user.id
     if @post.save
       redirect_to posts_path, notice: '投稿しました'
@@ -57,6 +57,7 @@ class PostsController < ApplicationController
   end
 
   private
+  
   def post_params
     params.require(:post).permit(:kind, :body)
   end

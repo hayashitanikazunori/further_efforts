@@ -5,26 +5,20 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      flash[:notice] = 'コメントを投稿しました。'
-      redirect_back(fallback_location: root_path)
+      redirect_to post_path(params[:post_id]), notice: 'コメントを投稿しました'
     else
-      flash[:alert] = 'コメントの投稿に失敗しました。'
-      redirect_back(fallback_location: root_path)
+      redirect_to post_path(params[:post_id]), alert: 'コメントの投稿に失敗しました'
     end
   end
 
   def destroy
-    @comment = Comment.find_by(
-      id: params[:id],
-      post_id: params[:post_id]
-    )
+    @comment = Comment.find_by(id: params[:id])
     if @comment.user_id == current_user.id
       @comment.destroy
       flash[:notice] = 'コメントを削除しました。'
-      redirect_back(fallback_location: root_path)
+      redirect_to post_path(params[:post_id]), notice: 'コメントを削除しました'
     else
-      flash.now[:alert] = '権限がありません。'
-      redirect_back(fallback_location: root_path)
+      redirect_to post_path(params[:post_id]), alert: '権限がありません'
     end
   end
 
