@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show, :new, :edit, :destroy, :update, :create]
   before_action :current_user_authenticate, only: [:edit, :destroy, :update]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @q = Post.ransack(params[:q])
@@ -8,7 +9,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @comments = @post.comments.includes(:user)
     @comment = Comment.new
     @like = Like.new
@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.span = params[:time]["post_span(4i)"].to_i * 60 + params[:time]["post_span(5i)"].to_i # ここの修正が必要か？
+    @post.span = params[:time].time_calculation
     @post.user_id = current_user.id
     if @post.save
       redirect_to posts_path, notice: '投稿しました'
@@ -31,12 +31,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     @post.update(post_params)
+    # あとでモデルに移す
     @post.span = params[:time]["post_span(4i)"].to_i * 60 + params[:time]["post_span(5i)"].to_i
     if @post.save
       redirect_to post_path(@post), notice: '編集しました'
@@ -47,7 +46,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     if @post.destroy
       redirect_to posts_path, notice: '削除しました'
     else
@@ -57,6 +55,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
   
   def post_params
     params.require(:post).permit(:kind, :body)
