@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
-         :omniauthable
+         :omniauthable, omniauth_providers: [:facebook, :twitter, :google_oauth2]
 
   validates :name, presence: true, length: { in: 1..20 }
 
@@ -69,6 +69,14 @@ class User < ApplicationRecord
     find_or_create_by!(name: 'guest', email: 'guset@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.confirmed_at = Time.now
+    end
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.name = "未設定"
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
     end
   end
 end
