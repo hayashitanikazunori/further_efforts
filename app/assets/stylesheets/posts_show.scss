@@ -11,6 +11,9 @@
         font-size: 25px;
       }
     }
+    .post_edit_and_delete {
+      width: 95% !important;
+    }
     .post_liked_users {
       width: 95% !important;
     }
@@ -25,8 +28,9 @@
   margin: 10px auto;
   .post_show_user {
     text-align: center;
-    list-style: none;
-    padding-left: 0;
+    .link_reset {
+      color: #445e80;
+    }
   }
   .card {
     width: 60%;
@@ -38,6 +42,14 @@
       width: 70%;
       margin: 10px auto;
       border-bottom: solid 1px #6c757d;
+    }
+  }
+  .post_edit_and_delete {
+    width: 60%;
+    margin: 0 auto;
+    .btn-decoration {
+      color: #445e80;
+      text-decoration: none;
     }
   }
   .border {
