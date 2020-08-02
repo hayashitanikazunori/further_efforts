@@ -12,6 +12,7 @@
           <h2><%= i %></h2>
         <% end %>
       </div>
+
       <a href="/users/<%= user.id %>" class="font_brack">
         <div class="post_box btn paper-raise">
           <div class="post_user_profile">
@@ -20,11 +21,13 @@
               <li><%= user.name %></li>
             </ul>
           </div>
+
           <ul>
             <li>
               <label>今週の学習時間</label><br>
               <%= user.week_all_total_spans / 60 %>時間<%= user.week_all_total_spans % 60 %>分
             </li>
+            
             <li>
               <label>フォロアー</label><br>
               <%= user.followers.count %>

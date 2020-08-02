@@ -1,21 +1,21 @@
-<div class="forms">
+<div class="devise_container">
   <h2>ログイン</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="post_field">
+    <div class="field">
       <%= f.label :メールアドレス %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", :id => "email", :class => "form-control", :placeholder => "メールアドレスを入力してください(必須)" %>
     </div>
 
-    <div class="post_field">
+    <div class="field">
       <%= f.label :パスワード %><br />
       <%= f.password_field :password, autocomplete: "current-password", :id => "password", :class => "form-control", :placeholder => "パスワードを入力してください(必須)" %>
     </div>
 
     <div class="actions">
-      <input type="submit" name="commit" class="btn btn-primary" data-disable-with="ログイン" value="ログイン">
+      <%= f.submit "ログイン", :id => "commit", :class => "btn btn-primary" %>
     </div>
-
   <% end %>
+  
   <%= render "devise/shared/links" %>
 </div>

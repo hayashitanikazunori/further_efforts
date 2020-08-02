@@ -20,29 +20,19 @@ class User < ApplicationRecord
     return Post.where(user_id: self.id).order('id DESC')
   end
 
-  def span_total
-    total = Post.where(
-      kind: self.kind,
-      user_id: self.user_id
-    )
-    return total.sum(:span)
-  end
-
   def self.rank_user
     User.find( 
-    Post.group(:user_id) # user_idでグループ化
-    .where(created_at: Date.current.in_time_zone.all_week) # 今週の投稿のみで絞り込み
-    .order("sum(span) desc") # spanカラムを合計してそれを降順に並び替える
-    .limit(10) # 10番目まで取得
-    .pluck(:user_id) # 最後にuser_idを返す
+      Post.group(:user_id)
+      .where(created_at: Date.current.in_time_zone.all_week)
+      .order("sum(span) desc")
+      .limit(10)
+      .pluck(:user_id)
     )
   end
 
   def total_and_counts
-    today = Date.current
-    
     total_spans = Post.group(:kind).where(user_id: self.id).sum(:span).to_a
-    week_total_spans = Post.group(:kind).where(created_at: today.in_time_zone.all_week, user_id: self.id).sum(:span)
+    week_total_spans = Post.group(:kind).where(created_at: Date.current.in_time_zone.all_week, user_id: self.id).sum(:span)
     total_counts = Post.group(:kind).where(user_id: self.id).count.values
     total_spans.map.with_index {|total_span, i| total_span.push(week_total_spans.fetch(total_span[0], 0), total_counts[i])}
   end
@@ -50,7 +40,7 @@ class User < ApplicationRecord
   def week_all_total_spans
     today = Date.current
     week_all_total_spans = Post.where(user_id: self.id, created_at: today.in_time_zone.all_week)
-    return week_all_total_spans.sum(:span)
+    week_all_total_spans.sum(:span)
   end
 
   def already_liked?(post)

@@ -3,9 +3,11 @@
     <li>
       <%= f.select :kind_in, options_for_select(Post.kinds.keys), {include_blank: '言語選択'}, {onclick: "return false;", onchange: "", class: "custom-select"} %>
     </li>
+
     <li>
       <%= f.search_field :user_name_cont, :placeholder => "名前で検索する", :class => "form-control" %>
     </li>
+
     <li>
       <%= f.submit "検索", :class => "btn btn-secondary" %>
     </li>

@@ -1,22 +1,24 @@
-<div class="comment_post">
+<div class="comment_form">
   <%= form_with model: [post, comment], local: true do |c| %>
-    <%= c.text_field :review, {class: "form-control", placeholder: "コメントを入力してください"} %><br >
+    <%= c.text_field :review, {class: "form-control", placeholder: "コメントを入力してください"} %><br>
     <%= c.hidden_field :post_id, value: @post.id %>
     <%= c.submit 'コメントする', :class => "btn btn-secondary" %>
   <% end %>
 </div>
-<div class="commented">
+
+<div class="commented_users">
   <% comments.each do |comment| %>
     <table class="table table-hover">
       <tr class="table-light">
         <th>
-          <a href="/users/<%= comment.user.id %>" class="link_reset">
+          <%= link_to user_path(comment.user), :class => "link_style" do %>
             <%= render partial: "shares/user_avatar", locals: {user: comment.user} %><%= comment.user.name %> ＞＞ <%= comment.review %>
-          </a>
+          <% end %>
         </th>
+
         <th>
           <% if comment.user_id == current_user.id %>
-            <%= link_to post_comment_path(comment.post.id, comment.id), method: :delete, :id => 'comment_delete', :class => "btn-decoration", :onclick => "return confirm('本当に削除しますか？')" do %>
+            <%= link_to post_comment_path(comment.post.id, comment.id), method: :delete, :id => 'comment_delete', :class => "link_style", :onclick => "return confirm('本当に削除しますか？')" do %>
               <i class="far fa-trash-alt action-btn"></i>
             <% end %>
           <% end %>

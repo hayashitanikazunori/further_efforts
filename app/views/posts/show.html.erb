@@ -1,26 +1,35 @@
-<div class="post_show_container">
-  <div class="post_show_user">
-    <%= link_to user_path(@post.user), :class => "link_reset" do %>
+<div class="posts_show_container">
+  <div class="posts_show_user">
+    <%= link_to user_path(@post.user), :class => "link_style" do %>
       <% if @post.user.avatar.blank? %>
         <%= image_tag 'default.png', :class => "avatar_image_150" %>
       <% else %>
         <%= image_tag @post.user.avatar, :class => 'avatar_image_150' %>
       <% end %>
+
       <h1><%= @post.user.name %></h1>
     <% end %>
   </div>
-  <%= render partial: "post_show_box", locals: {post: @post} %>
-  <div class="post_edit_and_destroy">
+
+  <%= render partial: "post_show_box_container", locals: {post: @post} %>
+
+  <div class="edit_and_destroy">
     <%= render partial: "shares/post_edit_and_destroy", locals: {post: @post} %>
   </div>
+
   <p class="border"></p>
-  <div class ="post_liked_users" id="show_like_bottons_<%= @post.id %>">
-    <%= render partial: "shares/likeduser", locals: {post: @post} %>
+
+  <div class ="likes_container" id="likes_container">
+    <%= render partial: "likes_container", locals: {post: @post} %>
   </div>
+
   <p class="border"></p>
-  <div class="post_comments">
+
+  <div class="comments_container">
     <h4>コメント一覧</h4>
-    <%= render partial: "comment", locals: {comment: @comment, post: @post, comments: @comments} %>
+
+    <%= render partial: "comments_container", locals: {comment: @comment, post: @post, comments: @comments} %>
   </div>
 </div>
+
 <%= render "shares/footer" %>

@@ -1,11 +1,11 @@
 @media screen and (max-width:480px) {
   // 画面幅が480pxまでの時
-  .forms {
+  .devise_container {
     width: 100% !important;
   }
 }
 
-.forms {
+.devise_container {
   width: 50%;
   margin: 10px auto;
   padding: 10px 50px;
@@ -19,7 +19,7 @@
 }
 
 // 見出し
-.forms h2 {
+.devise_container h2 {
   text-align: center;
   margin: 20px 0;
 }
@@ -27,11 +27,6 @@
 // フィールド
 input {
   width: 100%;
-}
-
-.actions {
-  text-align: center;
-  margin: 20px 0;
 }
 
 .btn-primary {

@@ -26,14 +26,6 @@ body {
   background-color: #f1f1f1;
 }
 
-// ログイン画面
-.container-login {
-  @extend .container-fluid;
-  max-width: 576px;
-  padding: 2rem;
-}
-
-// ログインしましたなどのフラッシュ用スタイル
 .alert-notice {
   @extend .alert-info;
 }
@@ -42,14 +34,22 @@ body {
   @extend .alert-danger;
 }
 
-// フォントを黒にしてアンダーバーを消す
-.link_reset {
+.field {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.actions {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.link_style {
   color: #445e80;
   text-decoration: none !important;
 }
 
-// ボタンの下線を消す
-.btn-decoration {
+.underber_delete {
   text-decoration: none;
 }
 
@@ -58,32 +58,14 @@ body {
   font-size: 20px;
 }
 
-.avatar_image_70 {
-  width: 70px;
-  height: 70px;
-  border-radius: 5px;
-}
-.avatar_image_100 {
-  width:  100px;
-  height: 100px;
-  border-radius: 5px;
-}
-.avatar_image_150 {
-  width:  150px;
-  height: 150px;
-  border-radius: 5px;
-}
-.avatar_image_200 {
-  width: 250px;
-  height: 250px;
-  border-radius: 5px;
+.border {
+  border-bottom: solid 1px #446E9B !important;
 }
 
 .pagination {
   justify-content: center;
 }
 
-// フッター
 footer {
   text-align: center;
 }

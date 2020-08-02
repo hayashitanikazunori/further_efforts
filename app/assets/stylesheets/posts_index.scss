@@ -1,6 +1,6 @@
 @media screen and (max-width:480px) {
   // 画面幅が480pxまでの時
-  .post_heder {
+  .posts_header {
     width: 90% !important;
     .post_search {
       padding-top: 0 !important;
@@ -24,23 +24,24 @@
   }
 }
 
-.post_heder {
+.posts_header {
   width: 50%;
   margin: 10px auto;
   text-align: center;
-  .post_search{
-    height: 60px;
-    padding: 10px 0 0 100px;
-    .btn {
-      width: 70px;
-      margin: 0;
-    }
-    ul {
-      list-style: none;
-      li {
-        margin: 0 10px;
-        float: left;
-      }
+}
+
+.post_search{
+  height: 60px;
+  padding: 10px 0 0 100px;
+  .btn {
+    width: 70px;
+    margin: 0;
+  }
+  ul {
+    list-style: none;
+    li {
+      margin: 0 10px;
+      float: left;
     }
   }
 }

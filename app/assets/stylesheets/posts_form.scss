@@ -1,25 +1,20 @@
 @media screen and (max-width:480px) {
   // 画面幅が480pxまでの時
-  .post_f {
+  .post_form_container {
     width: 90% !important;
   }
 }
 
-.post_f {
+.post_form_container {
   width: 50%;
   margin: 0 auto;
   padding-top: 30px;
 
-  .f_sbumit {
+  .sbumit {
     text-align: center;
   }
   
   .time {
     width: 70px;
   }
-}
-
-.post_field {
-  margin-bottom: 20px;
-  font-size: 20px;
 }

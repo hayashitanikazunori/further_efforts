@@ -17,7 +17,7 @@ class Post < ApplicationRecord
       kind: self.kind,
       user_id: self.user_id
     )
-    return total.sum(:span)
+    total.sum(:span)
   end
 
   enum kind: {

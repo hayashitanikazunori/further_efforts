@@ -1,2 +1,2 @@
 $('#like_bottons_<%= @post.id %>').html("<%= j(render partial: 'shares/likeform', locals: {post: @post}) %>");
-$('#show_like_bottons_<%= @post.id %>').html("<%= j(render partial: 'shares/likeduser', locals: {post: @post}) %>");
+$('#likes_container').html("<%= j(render partial: 'posts/likes_container', locals: {post: @post}) %>");

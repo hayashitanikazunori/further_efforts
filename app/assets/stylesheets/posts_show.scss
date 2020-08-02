@@ -1,66 +1,71 @@
 @media screen and (max-width:480px) {
   // 画面幅が480pxまでの時
-  .post_show_container {
+  .posts_show_container {
     width: 95% !important;
+
     .card {
       width: 95% !important;
+
       .card-texts {
         font-size: 15px;
       }
+
       .card-title {
         font-size: 25px;
       }
     }
+
     .post_edit_and_destroy {
       width: 95% !important;
     }
+
     .post_liked_users {
       width: 95% !important;
     }
-    .post_comments {
+
+    .comments_container {
       width: 95%;
     }
   }
 }
 
-.post_show_container {
+.posts_show_container {
   width: 70%;
   margin: 10px auto;
-  .post_show_user {
+
+  .posts_show_user {
     text-align: center;
+
     .link_reset {
       color: #445e80;
     }
   }
+
   .card {
     width: 60%;
     margin: 10px auto;
+
     .card-header {
       text-align: center;
     }
+
     .card-body-colum {
       width: 70%;
       margin: 10px auto;
       border-bottom: solid 1px #6c757d;
     }
   }
-  .post_edit_and_destroy {
+
+  .edit_and_destroy {
     width: 60%;
     margin: 0 auto;
-    .btn-decoration {
-      color: #445e80;
-      text-decoration: none;
-    }
-  }
-  .border {
-    border-bottom: solid 1px #446E9B !important;
   }
 }
 
-.post_liked_users {
+.likes_container {
   width: 60%;
   margin: 10px auto;
-  .show_like_btn {
+  .like_btns {
     text-align: center;
     .btn {
       margin: 0;
@@ -69,14 +74,15 @@
   h4 {
     margin-top: 10px;
   }
-  .show_like_users {
-    margin: 3px;
+  .liked_users {
+    margin: 5px;
   }
 }
-.post_comments {
+
+.comments_container {
   width: 60%;
   margin: 0 auto;
-  .comment_post {
+  .comment_form {
     text-align: center;
     .btn {
       margin: 0;
@@ -86,7 +92,7 @@
     border-top: rgb(133, 144, 173);
     border-radius: 15px;
   }
-  .commented {
+  .commented_users {
     margin: 10px 0;
   }
 }

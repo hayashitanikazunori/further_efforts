@@ -1,13 +1,13 @@
-<div class="post_heder">
+<div class="posts_header">
   <h1>みんなの努力の掲示板</h1>
   <h3>さぁ、あなたも投稿して応援してもらおう！</h3>
   <button type="button" onclick="location.href='/posts/new'" class="btn btn-primary btn-lg btn-block">投稿してみる</button>
-  <%= render partial: 'post_search', locals: {q: @q} %>
+
+  <%= render partial: 'search_container', locals: {q: @q} %>
 </div>
-<%= render partial: "posts_index_box", locals: {posts: @posts} %>
-<div class="post_fotter">
-  <div class="page_nation_fotter">
-    <%= paginate(@posts) %>
-  </div>
-</div>
+
+<%= render partial: "shares/posts_box_container", locals: {posts: @posts} %>
+
+<%= paginate(@posts) %>
+
 <%= render "shares/footer" %>
