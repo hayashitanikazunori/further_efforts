@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.span = params[:time].time_calculation
+    @post.span = params[:time]["post_span(4i)"].to_i * 60 + params[:time]["post_span(5i)"].to_i
     @post.user_id = current_user.id
     if @post.save
       redirect_to posts_path, notice: '投稿しました'
