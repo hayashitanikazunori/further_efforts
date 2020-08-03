@@ -21,61 +21,61 @@
     }
   }
 
-  .posts_boxs_fream {
-    width: 50%;
-  
-    .post_box {
-      height: 365px;
-      border: solid 1px black;
-      border-radius: 10px;
-      a:link, a:visited, a:hover, a:active {
-        color: black;
-        text-decoration: none;
-      }
-  
-      ul {
-        padding-left: 0;
-        list-style: none;
-      }
-  
-      .details_during_learning {
-        li {
-          border-bottom: solid 0.5px;
-          border-color: rgba(44, 44, 44, 5);
-        }
-      }
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }
 
-      label {
-        font-size: small;
-        margin-bottom: 0;
-        color: rgb(44, 44, 44);
-      }
-  
-      .label_adjustment {
-        padding-right: 85px;
-      }
+  .details_during_learning {
+    li {
+      border-bottom: solid 0.5px;
+      border-color: rgba(44, 44, 44, 5);
     }
+  }
 
-    .edit_and_destroy {
-      float: left;
-    }
+  label {
+    font-size: small;
+    margin-bottom: 0;
+    color: rgb(44, 44, 44);
+  }
 
-    .like_btn {
-      float: right;
-      position: static;
-    }
+  .label_adjustment {
+    padding-right: 85px;
+  }
 
-    .created_at {
-      position: relative;
-      top: 30px;
-      left: 45px;
-      float: right;
-      p {
-        font-size: 8px;
-        margin-bottom: 0;
-      }
+  .edit_and_destroy {
+    float: left;
+  }
+
+  .like_btn {
+    float: right;
+    position: static;
+  }
+
+  .created_at {
+    position: relative;
+    top: 30px;
+    left: 45px;
+    float: right;
+    p {
+      font-size: 8px;
+      margin-bottom: 0;
     }
-    
+  }
+}
+
+.posts_boxs_fream {
+  width: 50%;
+
+  .post_box {
+    height: 365px;
+    border: solid 1px black !important;
+    border-radius: 10px !important;
+
+    a:link, a:visited, a:hover, a:active {
+      color: black;
+      text-decoration: none;
+    }
   }
   
   .btn {
@@ -97,12 +97,13 @@
     
     &:before,
     &:after {
-        content: "";
-        position: absolute;
-        z-index: -2;
-          transition: all 250ms ease-out;
+      content: "";
+      position: absolute;
+      z-index: -2;
+      transition: all 250ms ease-out;
     }
   }
+
   .paper-raise {
     &:before {
       top: 0;
@@ -110,6 +111,7 @@
       width: 100%;
       height: 100%;
     }
+
     &:hover {
       border: 1px solid #eeeded;
       
@@ -118,6 +120,7 @@
       }
     }
   }
+
    .cont_select_center {
     position: absolute;
     left: 50%;
@@ -125,12 +128,13 @@
     margin-top: -30px;
     margin-left: -150px;
   }
+
   .icon_select_mate {
     position: absolute;
     top:20px;
     right: 2%;
     font-size: 16px;
-      height: 22px;
+    height: 22px;
     transition: all 275ms;
   }
   
@@ -147,6 +151,7 @@
     box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.3);
     border-radius: 3px;
     transition: all 375ms ease-in-out;
+    
     select {
     position: absolute;
     overflow: hidden;
