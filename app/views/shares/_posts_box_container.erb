@@ -1,47 +1,55 @@
-<div class="post_container">
+<div class="posts_boxs_container">
   <% posts.each do |post| %>
-    <div class="post_box_fream">
-      <a href="/posts/<%= post.id %>" class="font_brack">
+    <div class="posts_boxs_fream">
+      <%= link_to post_path(post) do %>
         <div class="post_box btn paper-raise">
-          <div class="post_user_profile">
+          <div class="post_do_user_profile">
             <ul>
               <li>
                 <p><%= render partial: "shares/user_avatar", locals: {user: post.user} %></p>
               </li>
+
               <li>
                 <%= post.user.name %>
               </li>
             </ul>
           </div>
-          <ul class="learning_profile">
+
+          <ul class="details_during_learning">
             <li>
-              <label class="adjustment">学習言語</label><br>
+              <label class="label_adjustment">学習言語</label><br>
               <%= post.kind %>
             </li>
+
             <li>
               <label>メモ</label><br>
               <%= post.body %>
             </li>
+
             <li>
               <label>学習時間</label><br>
               <%= post.span / 60 %>時間<%= post.span % 60 %>分
             </li>
+
             <li>
               <label>累計学習時間(<%= post.kind %>)</label><br>
               <%= post.span_total / 60 %>時間<%= post.span_total % 60 %>分
             </li>
           </ul>
-          <div class="post_edit_destroy_btn">
+
+          <div class="edit_and_destroy">
             <%= render partial: "shares/post_edit_and_destroy", locals: {post: post} %>
           </div>
-          <div class="post_like_btn" id="like_bottons_<%= post.id %>">
+
+          <div class="like_btn" id="like_bottons_<%= post.id %>">
             <%= render partial: "shares/likeform", locals: {post: post} %>  
           </div>
-          <div class="post_created_at">
+
+          <div class="created_at">
             <p>投稿日時：<%= post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
           </div>
         </div>
-      </a>
+      <% end %>
     </div>
   <% end %>
 </div>

@@ -1,8 +1,4 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
 @media screen and (max-width:480px) {
-  // 画面幅が480pxまでの時
   .avatar_image_200 {
     width: 150px !important;
     height: 150px !important;
@@ -15,8 +11,9 @@
   .tab_content {
     padding: 0 !important;
   }
-  .learning-profile {
-    width: 90%;
+  .details-card {
+    width: 90% !important;
+
     .card-texts {
       font-size: 15px;
     }
@@ -25,7 +22,7 @@
     text-align: center;
   }
   .user_posts {
-    .post_box_fream {
+    .posts_boxs_fream {
       width: 90%;
     }
   }
@@ -40,7 +37,7 @@
       position: static !important;
     }
   }
-  .learning-profile {
+  .details-card {
     width: 90%;
     .card-texts {
       font-size: 15px;
@@ -77,7 +74,7 @@
   }
 }
 
-.learning-profile {
+.details-card {
   width: 50%;
   margin: 15px auto 0 auto;
   .card-body-colum {
@@ -151,16 +148,6 @@ input[name="tab_item"] {
   background: radial-gradient(#CBBACC, #2580B3);
   color: rgb(231, 231, 231);
   text-shadow: 1px 1px 2px rgb(61, 61, 61);
-}
-
-.card {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  .card-texts {
-    margin-bottom: 0;
-  }
-  .card-title {
-    text-align: center;
-  }
 }
 
 .user_posts {

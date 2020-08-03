@@ -1,25 +1,47 @@
 @media screen and (max-width:480px) {
-  // 画面幅が480pxまでの時
   .posts_header {
     width: 90% !important;
+
     .post_search {
-      padding-top: 0 !important;
-      padding-left: 0 !important;
+      padding: 0 !important;
       margin: 0 !important;
       height: 120px !important;
+
       ul {
         padding-left: 0 !important;
       }
+
       li {
         float: none !important;
         margin: 10px 0 !important;
       }
     }
   }
-  .post_container {
-    width: 95%;
-    .post_box_fream {
+
+  .posts_boxs_container {
+    .posts_boxs_fream {
       width: 90%;
+    }
+  }
+}
+
+@media screen and (max-width:780px) {
+  .posts_header {
+    width: 80% !important;
+
+    .post_search {
+      padding: 0 !important;
+      margin: 0 !important;
+      height: 120px !important;
+
+      ul {
+        padding-left: 0 !important;
+      }
+
+      li {
+        float: none !important;
+        margin: 10px 0 !important;
+      }
     }
   }
 }
@@ -28,223 +50,23 @@
   width: 50%;
   margin: 10px auto;
   text-align: center;
-}
 
-.post_search{
-  height: 60px;
-  padding: 10px 0 0 100px;
-  .btn {
-    width: 70px;
-    margin: 0;
-  }
-  ul {
-    list-style: none;
-    li {
-      margin: 0 10px;
-      float: left;
+  .post_search{
+    height: 60px;
+    padding: 20px 0 0 100px;
+  
+    .btn {
+      width: 70px;
+      margin: 0;
     }
-  }
-}
-
-.post_container {
-  width: 70%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-.post_box_fream {
-  width: 50%;
-  .post_box {
-    height: 365px;
-    border: solid 1px black;
-    border-radius: 10px;
-    a:link, a:visited, a:hover, a:active {
-      color: black;
-      text-decoration: none;
-    }
+  
     ul {
-      padding-left: 0;
       list-style: none;
-    }
-    .learning_profile {
-      .adjustment {
-        padding-right: 68px;
-      }
+  
       li {
-        border-bottom: solid 0.5px;
-        border-color: rgba(44, 44, 44, 5);
+        margin: 0 10px;
+        float: left;
       }
     }
-    label {
-      font-size: small;
-      margin-bottom: 0;
-      color: rgb(44, 44, 44);
-    }
   }
-}
-.post_user_profile {
-  height: 80px;
-  ul {
-    li{
-      float: left;
-    }
-  }
-  .post_user_avatar {
-    width: 70px;
-    height: 70px;
-    padding: 5px 0 0 5px;
-  }
-}
-.post_follow_btn {
-  height: 10%;
-}
-.post_edit_destroy_btn {
-  float: left;
-}
-.post_like_btn {
-  float: right;
-  position: static;
-}
-.post_created_at {
-  position: relative;
-  top: 30px;
-  left: 45px;
-  float: right;
-  p {
-    font-size: 8px;
-    margin-bottom: 0;
-  }
-}
-
-.btn {
-  position: relative;
-  display: block;
-  width: 250px;
-  margin: 20px auto;
-  padding: 10px;
-  
-  background-color: #fff;
-  border: 1px solid #ccc;
-
-  color: #000;
-  text-align: center;
-  text-decoration: none;
-  
-  transform-style: flat;
-  transition: all 250ms ease-out;
-  
-  &:before,
-  &:after {
-      content: "";
-      position: absolute;
-      z-index: -2;
-        transition: all 250ms ease-out;
-  }
-}
-.paper-raise {
-  &:before {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  &:hover {
-    border: 1px solid rgb(255, 255, 255);
-    
-    &:before {
-      box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5);
-    }
-  }
-}
- .cont_select_center {
-  position: absolute;
-  left: 50%;
-  top:50%;
-  margin-top: -30px;
-  margin-left: -150px;
-}
-.icon_select_mate {
-  position: absolute;
-  top:20px;
-  right: 2%;
-  font-size: 16px;
-    height: 22px;
-  transition: all 275ms;
-}
-
-.select_mate {
-  position: relative;
-  float: left;
-  min-width: 300px;
-  width: 300px;
-  min-height: 30px;
-  font-family: 'Roboto';
-  color: #777;
-  font-weight: 300;
-  background-color: #fff;
-  box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.3);
-  border-radius: 3px;
-  transition: all 375ms ease-in-out;
-  select {
-  position: absolute;
-  overflow: hidden;
-  height: 0px;
-  opacity: 0;  
-    z-index: -1;
-  }
-}
-
-.cont_list_select_mate {
-  position: relative;
-  float: left;
-  width: 100%;
-}
-
-.cont_select_int {
- position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 999;
-  overflow: hidden;
-  height: 0px;
-  width: 100%;
-  background-color: #fff;
-  padding: 0px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  border-radius: 0px 0px 3px 3px;
-  box-shadow: 1px 4px 10px -2px rgba(0, 0, 0, 0.2);
-  transition: all 375ms ease-in-out;
-    li {
-    position: relative;
-    float: left;
-    width: 96%;
-    border-bottom:1px solid #E0E0E0;
-    background-color: #F5F5F5;
-    list-style-type: none;
-    padding: 10px 2%;
-    margin: 0px;  
-    transition: all 275ms ease-in-out;
-    display: block;
-    cursor:pointer;
-        &:last-child {
-        border-radius: 3px;
-        border-bottom:0px; 
-        }
-         &:hover {
-        background-color: #EEEEEE;
-         } 
-     }
-   .active {
-   background-color: #EEEEEE;
-   }
-}
-.selecionado_opcion {
-    padding: 20px 2%;
-    width: 96%;
-    display: block;
-    margin: 0px;
-    cursor: pointer;
 }

@@ -1,5 +1,4 @@
 @media screen and (max-width:480px) {
-  // 画面幅が480pxまでの時
   .posts_show_container {
     width: 95% !important;
 
@@ -35,10 +34,6 @@
 
   .posts_show_user {
     text-align: center;
-
-    .link_reset {
-      color: #445e80;
-    }
   }
 
   .card {
@@ -65,16 +60,19 @@
 .likes_container {
   width: 60%;
   margin: 10px auto;
+
   .like_btns {
     text-align: center;
     .btn {
       margin: 0;
     }
   }
+
   h4 {
     margin-top: 10px;
   }
-  .liked_users {
+  
+  .liked_user {
     margin: 5px;
   }
 }

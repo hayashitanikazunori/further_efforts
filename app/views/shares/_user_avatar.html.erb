@@ -1,5 +1,5 @@
 <% if user.avatar.blank? %>
-  <%= image_tag 'default.png', :class => "avatar_image_70" %>
+  <%= image_tag 'default.png', :class => "image_size_70" %>
 <% else %>
-  <%= image_tag user.avatar, :class => 'avatar_image_70' %>
+  <%= image_tag user.avatar, :class => 'image_size_70' %>
 <% end %>

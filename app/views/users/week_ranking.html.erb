@@ -1,0 +1,9 @@
+<div class="posts_header">
+  <h1>週間ランキング</h1>
+  <h3>日頃の努力量で競い合い、高めよう！</h3>
+  <button type="button" onclick="location.href='/posts/new'" class="btn btn-primary btn-lg btn-block">ランキングに入りたい！</button>
+</div>
+
+<%= render partial: "week_ranking_container", locals: {week_ranking: @week_ranking} %>
+
+<%= render "shares/footer" %>

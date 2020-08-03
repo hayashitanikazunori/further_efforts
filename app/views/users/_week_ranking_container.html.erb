@@ -1,13 +1,13 @@
 <div class="user_rank_container">
-  <% rank_user.each.with_index(1) do |user, i| %>
-    <div class="post_box_fream">
+  <% week_ranking.each.with_index(1) do |user, i| %>
+    <div class="posts_boxs_fream">
       <div class="user_rank">
         <% if i == 1 %>
-          <%= image_tag 'rank_top1', :class => 'avatar_image_70' %>
+          <%= image_tag 'rank_top1', :class => 'image_size_70' %>
         <% elsif i == 2 %>
-          <%= image_tag 'rank_top2', :class => 'avatar_image_70' %>
+          <%= image_tag 'rank_top2', :class => 'image_size_70' %>
         <% elsif i == 3 %>
-          <%= image_tag 'rank_top3', :class => 'avatar_image_70' %>
+          <%= image_tag 'rank_top3', :class => 'image_size_70' %>
         <% else %>
           <h2><%= i %></h2>
         <% end %>
@@ -15,8 +15,8 @@
 
       <a href="/users/<%= user.id %>" class="font_brack">
         <div class="post_box btn paper-raise">
-          <div class="post_user_profile">
-            <ul class="user_profile">
+          <div class="post_do_user_profile">
+            <ul>
               <li><%= render partial: "shares/user_avatar", locals: {user: user} %></li>
               <li><%= user.name %></li>
             </ul>

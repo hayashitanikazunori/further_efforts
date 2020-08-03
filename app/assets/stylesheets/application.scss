@@ -34,6 +34,17 @@ body {
   @extend .alert-danger;
 }
 
+
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  .card-texts {
+    margin-bottom: 0;
+  }
+  .card-title {
+    text-align: center;
+  }
+}
+
 .field {
   margin-bottom: 20px;
   font-size: 20px;

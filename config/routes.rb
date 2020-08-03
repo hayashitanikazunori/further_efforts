@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/ranking'
+  get 'users/week_ranking'
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',

@@ -20,7 +20,7 @@ class User < ApplicationRecord
     return Post.where(user_id: self.id).order('id DESC')
   end
 
-  def self.rank_user
+  def self.week_ranking
     User.find( 
       Post.group(:user_id)
       .where(created_at: Date.current.in_time_zone.all_week)
