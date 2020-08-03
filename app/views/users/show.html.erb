@@ -1,53 +1,61 @@
-<div class="conotent">
-  <div class="user_profile">
-    <div class="user_image">
-      <% if @user.avatar.blank? %>
-        <%= image_tag 'default.png', :class => "image_size_200" %>
-      <% else %>
-        <%= image_tag @user.avatar, :class => 'image_size_200' %>
-      <% end %>
-    </div>
-    <div class="user_name">
-      <h1><%= @user.name %></h1>
-      <% if @user.id == current_user.id %>
-        <%= link_to "/users/edit", :class => "edit_btn" do %>
-          <i class="far fa-edit action-btn"></i>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="user_follow">
-      <span class>フォロー<%= @user.followings.count %></span>
-      <span>フォロワー<%= @user.followers.count %></span>
-    </div>
-    <%= render partial: "follow_form", locals: {user: @user} %>
+<div class="posts_header">
+  <% if @user.avatar.blank? %>
+    <%= image_tag 'default.png', :class => "image_size_200" %>
+  <% else %>
+    <%= image_tag @user.avatar, :class => 'image_size_200' %>
+  <% end %>
+
+  <h1><%= @user.name %></h1>
+
+  <% if @user.id == current_user.id %>
+    <%= link_to edit_user_registration_path, :class => "link_style" do %>
+      <i class="far fa-edit action-btn"></i>
+    <% end %>
+  <% end %>
+
+  <div class="user_follow">
+    <span>フォロー<%= @user.followings.count %></span>
+    <span>フォロワー<%= @user.followers.count %></span>
+
+    <%= render partial: "follow_btns", locals: {user: @user} %>
   </div>
+</div>
+
+<div class="user_profile_container">
   <div class="tabs">
-    <input id="user_learning" type="radio" name="tab_item" checked>
-    <label class="tab_item" for="user_learning">学習進捗</label>
+    <input id="user_learning_profile" type="radio" name="tab_item" checked>
+    <label class="tab_item" for="user_learning_profile">学習進捗</label>
+
     <input id="user_posted" type="radio" name="tab_item">
     <label class="tab_item" for="user_posted">過去の投稿</label>
-    <input id="user_following" type="radio" name="tab_item">
-    <label class="tab_item" for="user_following">フォロー</label>
-    <input id="user_follower" type="radio" name="tab_item">
-    <label class="tab_item" for="user_follower">フォロワー</label>
-    <div class="tab_content" id="user_learning_content">
+
+    <input id="user_followings" type="radio" name="tab_item">
+    <label class="tab_item" for="user_followings">フォロー</label>
+
+    <input id="user_followers" type="radio" name="tab_item">
+    <label class="tab_item" for="user_followers">フォロワー</label>
+
+    <div class="tab_content" id="user_learning_profile_content">
       <div class="tab_content_description">
         <%= render partial: "user_learning_profile", locals: {user: @user} %>
       </div>
     </div>
+    
     <div class="tab_content" id="user_posted_content">
       <div class="tab_content_description">
         <%= render partial: "shares/posts_box_container", locals: {posts: @user.posts} %>
       </div>
     </div>
-    <div class="tab_content" id="user_following_content">
+    
+    <div class="tab_content" id="user_followings_content">
       <div class="tab_content_description">
-        <%= render partial: "follow_view", locals: {user: @user, follow_do: @user.followings} %>
+        <%= render partial: "followers_and_followings_users", locals: {user: @user, follows: @user.followings} %>
       </div>
     </div>
-    <div class="tab_content" id="user_follower_content">
+    
+    <div class="tab_content" id="user_followers_content">
       <div class="tab_content_description">
-        <%= render partial: "follow_view", locals: {user: @user, follow_do: @user.followers} %>
+        <%= render partial: "followers_and_followings_users", locals: {user: @user, follows: @user.followers} %>
       </div>
     </div>
   </div>

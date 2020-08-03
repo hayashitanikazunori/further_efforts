@@ -84,14 +84,10 @@
     width: 250px;
     margin: 20px auto;
     padding: 10px;
-    
     background-color: #eeeded;
-    border: 1px solid #eeeded;
-  
     color: #000;
     text-align: center;
     text-decoration: none;
-    
     transform-style: flat;
     transition: all 250ms ease-out;
     
@@ -113,7 +109,7 @@
     }
 
     &:hover {
-      border: 1px solid #eeeded;
+      border: 1px solid #eeeded !important;
       
       &:before {
         box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5);

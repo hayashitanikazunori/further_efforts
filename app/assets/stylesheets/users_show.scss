@@ -3,14 +3,15 @@
     width: 150px !important;
     height: 150px !important;
   }
-  .user_name {
-    .edit_btn {
-      position: static !important;
-    }
+
+  .user_follow {
+    width: 90% !important;
   }
+
   .tab_content {
     padding: 0 !important;
   }
+  
   .details-card {
     width: 90% !important;
 
@@ -18,73 +19,55 @@
       font-size: 15px;
     }
   }
+
   .card-header {
     text-align: center;
   }
-  .user_posts {
-    .posts_boxs_fream {
-      width: 90%;
-    }
-  }
+
   .follows_container {
     width: 100%;
   }
 }
 
 @media screen and (max-width:780px) {
-  .user_name {
-    .edit_btn {
-      position: static !important;
+  .user_profile_container {
+    .posts_boxs_container {
+      width: 90% !important;
     }
   }
+
   .details-card {
     width: 90%;
     .card-texts {
       font-size: 15px;
     }
   }
-  .user_posts {
-    .post_box_fream {
-      width: 70%;
-      margin: 0 auto !important;
-    }
-  }
 }
 
-.user_profile {
-  width: 70%;
-  display: block;
-  margin: 20px auto;
-  text-align: center;
-  .user_name {
-    position: relative;
-    .edit_btn {
-      position: absolute;
-      top: 15px;
-      right: 300px;
-      color: rgb(170, 170, 170);
-    }
-  }
-  .user_follow {
-    margin: 5px 0;
-    span {
-      margin-left: 5px;
-      font-size: 20px;
-    }
+.user_follow {
+  width: 50%;
+  margin: 10px auto;
+
+  span {
+    margin-left: 5px;
+    font-size: 20px;
   }
 }
 
 .details-card {
   width: 50%;
   margin: 15px auto 0 auto;
+
   .card-body-colum {
     width: 80%;
     border-bottom: solid 1px black;
     margin: 0 auto 6px auto;
+
     .card-header h3 {
       text-align: left;
       padding-left: 50px;
     }
+
     .card-text {
       padding-left: 40px;
       text-align: left;
@@ -92,7 +75,7 @@
     }  
   }
 }
-/*タブ切り替え全体のスタイル*/
+
 .tabs {
   margin-top: 50px;
   padding-bottom: 40px;
@@ -101,7 +84,6 @@
   width: 95%;
   margin: 0 auto;}
 
-/*タブのスタイル*/
 .tab_item {
   width: calc(100%/4);
   height: 50px;
@@ -117,16 +99,15 @@
   font-weight: bold;
   transition: all 0.2s ease;
 }
+
 .tab_item:hover {
   opacity: 0.75;
 }
 
-/*ラジオボタンを全て消す*/
 input[name="tab_item"] {
   display: none;
 }
 
-/*タブ切り替えの中身のスタイル*/
 .tab_content {
   display: none;
   padding: 40px 40px 0;
@@ -134,28 +115,17 @@ input[name="tab_item"] {
   overflow: hidden;
 }
 
-
-/*選択されているタブのコンテンツのみを表示*/
-#user_learning:checked ~ #user_learning_content,
+#user_learning_profile:checked ~ #user_learning_profile_content,
 #user_posted:checked ~ #user_posted_content,
-#user_following:checked ~ #user_following_content,
-#user_follower:checked ~ #user_follower_content {
-  display: block;
+#user_followings:checked ~ #user_followings_content,
+#user_followers:checked ~ #user_followers_content {
+display: block;
 }
 
-/*選択されているタブのスタイルを変える*/
 .tabs input:checked + .tab_item {
   background: radial-gradient(#CBBACC, #2580B3);
   color: rgb(231, 231, 231);
   text-shadow: 1px 1px 2px rgb(61, 61, 61);
-}
-
-.user_posts {
-  width: 70%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
 }
 
 .follows_container {
