@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.span = params[:time]["post_span(4i)"].to_i * 60 + params[:time]["post_span(5i)"].to_i
+    @post.learned_time = params[:time]["post_learned_time(4i)"].to_i * 60 + params[:time]["post_learned_time(5i)"].to_i
     @post.user_id = current_user.id
     if @post.save
       redirect_to posts_path, notice: '投稿しました'
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
   def update
     @post.update(post_params)
     # あとでモデルに移す
-    @post.span = params[:time]["post_span(4i)"].to_i * 60 + params[:time]["post_span(5i)"].to_i
+    @post.learned_time = params[:time]["post_learned_time(4i)"].to_i * 60 + params[:time]["post_learned_time(5i)"].to_i
     if @post.save
       redirect_to post_path(@post), notice: '編集しました'
     else
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
   end
   
   def post_params
-    params.require(:post).permit(:kind, :body)
+    params.require(:post).permit(:learning_language, :memo)
   end
 
   def current_user_authenticate

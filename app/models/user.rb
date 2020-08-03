@@ -24,23 +24,23 @@ class User < ApplicationRecord
     User.find( 
       Post.group(:user_id)
       .where(created_at: Date.current.in_time_zone.all_week)
-      .order("sum(span) desc")
+      .order("sum(learned_time) desc")
       .limit(10)
       .pluck(:user_id)
     )
   end
 
   def total_and_counts
-    total_spans = Post.group(:kind).where(user_id: self.id).sum(:span).to_a
-    week_total_spans = Post.group(:kind).where(created_at: Date.current.in_time_zone.all_week, user_id: self.id).sum(:span)
-    total_counts = Post.group(:kind).where(user_id: self.id).count.values
-    total_spans.map.with_index {|total_span, i| total_span.push(week_total_spans.fetch(total_span[0], 0), total_counts[i])}
+    total_learned_time = Post.group(:learning_language).where(user_id: self.id).sum(:learned_time).to_a
+    week_total_learned_time = Post.group(:learning_language).where(created_at: Date.current.in_time_zone.all_week, user_id: self.id).sum(:learned_time)
+    total_counts = Post.group(:learning_language).where(user_id: self.id).count.values
+    total_learned_time.map.with_index {|total_learned_time, i| total_learned_time.push(week_total_learned_time.fetch(total_learned_time[0], 0), total_counts[i])}
   end
 
-  def week_all_total_spans
+  def week_all_total_learned_time
     today = Date.current
-    week_all_total_spans = Post.where(user_id: self.id, created_at: today.in_time_zone.all_week)
-    week_all_total_spans.sum(:span)
+    week_all_total_learned_time = Post.where(user_id: self.id, created_at: today.in_time_zone.all_week)
+    week_all_total_learned_time.sum(:learned_time)
   end
 
   def already_liked?(post)

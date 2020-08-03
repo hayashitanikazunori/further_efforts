@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :post do
-    kind {'JavaScript'}
-    body {'testを記述'}
-    span {'100'}
+    learning_language {'JavaScript'}
+    memo {'testを記述'}
+    learned_time {'100'}
     user
   end
 end

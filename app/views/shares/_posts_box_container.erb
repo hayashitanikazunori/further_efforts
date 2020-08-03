@@ -18,22 +18,22 @@
           <ul class="details_during_learning">
             <li>
               <label class="label_adjustment">学習言語</label><br>
-              <%= post.kind %>
+              <%= post.learning_language %>
             </li>
 
             <li>
               <label>メモ</label><br>
-              <%= post.body %>
+              <%= post.memo %>
             </li>
 
             <li>
               <label>学習時間</label><br>
-              <%= post.span / 60 %>時間<%= post.span % 60 %>分
+              <%= post.learned_time / 60 %>時間<%= post.learned_time % 60 %>分
             </li>
 
             <li>
-              <label>累計学習時間(<%= post.kind %>)</label><br>
-              <%= post.span_total / 60 %>時間<%= post.span_total % 60 %>分
+              <label>累計学習時間(<%= post.learning_language %>)</label><br>
+              <%= post.learned_time_total / 60 %>時間<%= post.learned_time_total % 60 %>分
             </li>
           </ul>
 

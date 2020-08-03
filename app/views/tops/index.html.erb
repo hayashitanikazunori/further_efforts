@@ -1,32 +1,36 @@
-<div class="most_top">
-<div class="slides">
-  <div class="slide">
-    <img class="slide_img" src="assets/toppage1.jpg" alt="画像1" width="90%" height="400">
+<div class="top_container">
+  <div class="slides">
+    <div class="slide">
+      <img class="slide_img" src="assets/toppage1.jpg" alt="画像1" width="90%" height="400">
+    </div>
+
+    <div class="slide">
+      <img class="slide_img" src="assets/toppage2.jpg" alt="テスト画像2" width="90%" height="400">
+    </div>
+
+    <div class="slide">
+      <img class="slide_img" src="assets/toppage3.jpg" alt="テスト画像3" width="90%" height="400">
+    </div>
   </div>
-  <div class="slide">
-    <img class="slide_img" src="assets/toppage2.jpg" alt="テスト画像2" width="90%" height="400">
-  </div>
-  <div class="slide">
-    <img class="slide_img" src="assets/toppage3.jpg" alt="テスト画像3" width="90%" height="400">
-  </div>
-</div>
+  
   <div class="top_title">
     <p>Futher Efforts</p>
     <span>みんなで支え合い、社会の未来を切り開く</span>
   </div>
-</div>
 
-<div class="jumbotron">
-  <h1 class="display-3">Futher Effortsとは？</h1>
-  <p class="lead">成長意欲の高い人がお互いの成長を投稿し、<br>
-    応援しあうことで学習効率をあげるサイトです。</p>
-  <hr class="my-4">
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="/users/sign_in" role="button">さぁ、はじめよう！</a><br>
+  <div class="jumbotron">
+    <h1 class="display-3">Futher Effortsとは？</h1>
+
+    <p class="lead">成長意欲の高い人がお互いの成長を投稿し、<br>
+      応援しあうことで学習効率をあげるサイトです。</p>
+
+    <p class="lead">
     <% unless user_signed_in? %>
-      <%= link_to '簡単ログイン', users_guest_sign_in_path, method: :post, :class => "btn btn-primary btn-lg" %>
+      <%= link_to "さぁ、はじめよう！", new_user_session_path, :id => "further_efforts_start", :class => "btn btn-primary btn-lg" %><br>
+      <%= link_to '簡単ログイン', users_guest_sign_in_path, method: :post, :id => "guest_sign_in", :class => "btn btn-primary btn-lg" %>
     <% end %>
-  </p>
+    </p>
+  </div>
 </div>
 
 <%= render "shares/footer" %>

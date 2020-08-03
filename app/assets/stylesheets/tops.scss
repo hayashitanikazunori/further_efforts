@@ -2,13 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @media screen and (max-width:480px) {
-  // 画面幅が480pxまでの時
-  p {
-    font-size: 10px;
+  .top_container {
+    p {
+      font-size: 13px;
+    }
+
+    .btn {
+      width: 80%;
+    }
   }
+
   .top_title {
     position: static;
-    left: 0 !important;
+
     span {
       display: none;
     }
@@ -16,28 +22,30 @@
 }
 
 @media screen and (max-width:780px) {
-  .top_title {
-    position: static;
-    left: 0 !important;
-    // span {
-    //   display: none;
-    // }
+  .top_title {    
+    span {
+      display: none;
+    }
   }
 }
 
-.most_top{
+.top_container{
   position: relative;
 
   .top_title {
     position: absolute;
     color: #446E9B;
     text-align: center;
-    top: 20%;
+    top: 15%;
     left: 18%;
     font-size: 50px;
     p {
       font-size: 100px;
     }
+  }
+
+  .btn {
+    margin-bottom: 10px !important;
   }
 }
 

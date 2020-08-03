@@ -1,18 +1,18 @@
 <div class ="post_form_container">
   <%= form_with model: post, local: true do |f| %>
     <div class ="field">
-      <%= f.label :kind, "学習言語" %><br>
-      <%= f.select :kind, options_for_select(Post.kinds.keys), {}, {class: "custom-select"} %><br>
+      <%= f.label :learning_language, "学習言語" %><br>
+      <%= f.select :learning_language, options_for_select(Post.learning_languages.keys), {}, {class: "custom-select"} %><br>
     </div>
 
     <div class ="field">
-      <%= f.label :body, "コメント" %><br>
-      <%= f.text_field :body, :id => "body", :class => "form-control", :placeholder => "コメントを入力してください(必須)" %><br>
+      <%= f.label :memo, "コメント" %><br>
+      <%= f.text_field :memo, :id => "memo", :class => "form-control", :placeholder => "コメントを入力してください(必須)" %><br>
     </div>
 
     <div class ="field">
-      <%= label :span, "学習した時間" %> <br>
-      <%= time_select "time", :post_span, {ignore_date:true, prompt: "--", minute_step: 5}, {id: "span", class: "custom-select time"} %>
+      <%= label :learned_time, "学習した時間" %> <br>
+      <%= time_select "time", :post_learned_time, {ignore_date:true, prompt: "--", minute_step: 5}, {id: "learned_time", class: "custom-select time"} %>
     </div>
 
     <div class ="sbumit">

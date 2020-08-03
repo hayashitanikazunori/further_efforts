@@ -4,23 +4,23 @@ class Post < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   has_many :comments
 
-  validates :kind, presence: true
-  validates :body, presence: true, length: { maximum: 30 }
-  validates :span, presence: true, numericality: { only_integer: true, other_than: 0 }
+  validates :learning_language, presence: true
+  validates :memo, presence: true, length: { maximum: 30 }
+  validates :learned_time, presence: true, numericality: { only_integer: true, other_than: 0 }
 
   def user
     return User.find_by(id: self.user_id)
   end
 
-  def span_total
+  def learned_time_total
     total = Post.where(
-      kind: self.kind,
+      learning_language: self.learning_language,
       user_id: self.user_id
     )
-    total.sum(:span)
+    total.sum(:learned_time)
   end
 
-  enum kind: {
+  enum learning_language: {
     JavaScript: "JavaScript",
     Ruby: "Ruby",
     Python: "Python",
