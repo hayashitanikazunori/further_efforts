@@ -4,7 +4,7 @@
       <tr class="table-light">
           <th>
             <%= link_to user_path(follow), :class => "link_style" do %>
-              <%= render partial: "shares/user_avatar", locals: {user: follow} %><%= follow.name %>
+              <%= user_avatar_70(follow) %><%= follow.name %>
             <% end %>
         </th>
       </tr>

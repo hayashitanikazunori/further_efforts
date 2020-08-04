@@ -15,7 +15,7 @@
 <% post.liked_users.each do |liked_user| %>
   <div class="liked_user">
     <%= link_to user_path(liked_user.id), :class => "link_style" do %>
-      <%= render partial: "shares/user_avatar", locals: {user: liked_user} %>
+      <%= user_avatar_70(liked_user) %>
       <%= liked_user.name %>
     <% end %>
   </div>

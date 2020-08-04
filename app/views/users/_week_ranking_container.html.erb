@@ -2,27 +2,20 @@
   <% week_ranking.each.with_index(1) do |user, i| %>
     <div class="posts_boxs_fream">
       <div class="ranking">
-        <% if i == 1 %>
-          <%= image_tag 'rank_top1', :class => 'image_size_70' %>
-        <% elsif i == 2 %>
-          <%= image_tag 'rank_top2', :class => 'image_size_70' %>
-        <% elsif i == 3 %>
-          <%= image_tag 'rank_top3', :class => 'image_size_70' %>
-        <% else %>
-          <h2><%= i %></h2>
-        <% end %>
+        <%= ranking(i) %>
       </div>
 
       <%= link_to user_path(user), :class => "underber_delete" do %>
         <div class="post_box btn paper-raise">
           <div class="post_do_user_profile">
-              <%= render partial: "shares/user_avatar", locals: {user: user} %>
+              <%= user_avatar_70(user) %>
+              
               <h2><%= user.name %></h2>
           </div>
 
           <div class="box_field">
             <label>今週の学習時間</label><br>
-            <span class="strong"><%= user.week_all_total_learned_time / 60 %>時間<%= user.week_all_total_learned_time % 60 %>分</span>
+            <span class="strong"><%= user_week_time(user) %></span>
           </div>
 
           <div class="box_field">

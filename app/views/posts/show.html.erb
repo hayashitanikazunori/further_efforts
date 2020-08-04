@@ -1,11 +1,7 @@
 <div class="posts_show_container">
   <div class="posts_show_user">
     <%= link_to user_path(@post.user), :class => "link_style" do %>
-      <% if @post.user.avatar.blank? %>
-        <%= image_tag 'default.png', :class => "image_size_150" %>
-      <% else %>
-        <%= image_tag @post.user.avatar, :class => 'image_size_150' %>
-      <% end %>
+      <%= user_avatar_150(@post.user) %>
 
       <h1><%= @post.user.name %></h1>
     <% end %>
