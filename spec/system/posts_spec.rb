@@ -96,7 +96,9 @@ RSpec.describe '投稿機能', type: :system do
       end
 
       it '編集ができる' do
-        fill_in "memo", with: 'bodiededit'
+        fill_in "memo", with: 'edit'
+        select '02', from: 'time[post_learned_time(4i)]'
+        select '05', from: 'time[post_learned_time(5i)]'
         click_button 'commit'
         expect(post).to be_valid 
         expect(page).to have_content '編集しました'

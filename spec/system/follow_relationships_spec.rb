@@ -11,36 +11,27 @@ RSpec.describe 'フォロー機能', type: :system do
         sign_in(user_b)
         visit user_path(user_a)
       end
-      # it 'フォローボタンが表示されるか' do # ここでエラー
-      #   expect(page).to have_content 'フォローする'  # ※もともと表示されていない
-      # end
 
       it 'フォローができるか' do
         click_on 'follow_create'
-        expect(page).to have_content 'フォローしました。'
+        expect(page).to have_content 'フォローしました'
       end
     end
 
-    # context '別のユーザーがログインしていてすでにフォロー済みの場合' do
-      # うまく機能してない↓
-      # let(:follow) { following }
-      # before do
-      #   user_b.confirm
-      #   sign_in(user_b)
-      #   visit user_path(user_a)
-      #   @followed = following
-      # end
-      # it 'フォロー解除ボタンが表示されるか' do
-      #   expect(page).to have_content 'フォロー済み' ※もともと表示されていない
-      # end
+    context '別のユーザーがログインしていてすでにフォロー済みの場合' do
+      let(:follow) { following }
+      before do
+        user_b.confirm
+        sign_in(user_b)
+        visit user_path(user_a)
+        click_on 'follow_create'
+      end
+      it 'フォローを解除できるか' do
+        click_on 'follow_delete'
+        expect(page).to have_content 'フォローを解除しました'
+      end
+    end
 
-    #   it 'フォローを解除できるか' do
-    #     click_on 'follow_delete' Unable to find link or buttonというエラーがおこる
-    #     expect(page).to have_content 'フォローを解除しました。'
-    #   end
-    # end
-
-    # もともと表示されていないため意味がないのでは？
     # context 'ユーザーが自身のshowページをみている場合' do
     #   before do
     #     user_a.confirm
