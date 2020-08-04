@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'フォロー機能', type: :system do 
-  let(:user_a) { FactoryBot.create(:user, name: 'test01', email: 'test01@example.com', password: 'password', password_confirmation: "password") }
-  let(:user_b) { FactoryBot.create(:user, name: 'test02', email: 'test02@example.com', password: 'password', password_confirmation: "password") }
+RSpec.describe 'フォロー機能', type: :system do
+  let(:user_a) { FactoryBot.create(:user, name: 'test01', email: 'test01@example.com', password: 'password', password_confirmation: 'password') }
+  let(:user_b) { FactoryBot.create(:user, name: 'test02', email: 'test02@example.com', password: 'password', password_confirmation: 'password') }
   let(:following) { FactoryBot.create(:follow_relationship, follower_id: user_b.id, following_id: user_a.id) }
   describe 'フォロー全般機能' do
     context '別のユーザーがログインしている場合' do

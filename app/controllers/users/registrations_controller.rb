@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :check_guest, only: [:destroy, :update]
+  before_action :check_guest, only: %i[destroy update]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -23,9 +23,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     super
-    if account_update_params[:avatar].present?
-      resource.avatar.attach(account_update_params[:avatar]) 
-    end
+    resource.avatar.attach(account_update_params[:avatar]) if account_update_params[:avatar].present?
   end
 
   # DELETE /resource
@@ -65,8 +63,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def check_guest
-    if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーは変更・削除できません。'
-    end
+    redirect_to root_path, alert: 'ゲストユーザーは変更・削除できません。' if resource.email == 'guest@example.com'
   end
 end

@@ -6,6 +6,6 @@ class CreateFollowRelationships < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_index :follow_relationships, [:follower_id, :following_id], unique: true
+    add_index :follow_relationships, %i[follower_id following_id], unique: true
   end
 end

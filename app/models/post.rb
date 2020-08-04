@@ -9,28 +9,28 @@ class Post < ApplicationRecord
   validates :learned_time, presence: true, numericality: { only_integer: true, other_than: 0 }
 
   def user
-    return User.find_by(id: self.user_id)
+    User.find_by(id: user_id)
   end
 
   def learned_time_total
     total = Post.where(
-      learning_language: self.learning_language,
-      user_id: self.user_id
+      learning_language: learning_language,
+      user_id: user_id
     )
     total.sum(:learned_time)
   end
 
   enum learning_language: {
-    JavaScript: "JavaScript",
-    Ruby: "Ruby",
-    Python: "Python",
-    Go: "Go",
-    Swift: "Swift",
-    'C++': "C++",
-    'C#': "C#",
-    PHP: "PHP",
-    Scala: "Scala",
-    Kotlin: "Kotlin",
-    Java: "Java",
+    JavaScript: 'JavaScript',
+    Ruby: 'Ruby',
+    Python: 'Python',
+    Go: 'Go',
+    Swift: 'Swift',
+    'C++': 'C++',
+    'C#': 'C#',
+    PHP: 'PHP',
+    Scala: 'Scala',
+    Kotlin: 'Kotlin',
+    Java: 'Java'
   }, _prefix: true
 end

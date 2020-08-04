@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe 'comments', type: :system do 
-  let(:user_a) { FactoryBot.create(:user, name: 'test01', email: 'test01@example.com', password: 'password', password_confirmation: "password") }
-  let(:user_b) { FactoryBot.create(:user, name: 'test02', email: 'test02@example.com', password: 'password', password_confirmation: "password") }
+RSpec.describe 'comments', type: :system do
+  let(:user_a) { FactoryBot.create(:user, name: 'test01', email: 'test01@example.com', password: 'password', password_confirmation: 'password') }
+  let(:user_b) { FactoryBot.create(:user, name: 'test02', email: 'test02@example.com', password: 'password', password_confirmation: 'password') }
   let(:post) { FactoryBot.create(:post, learning_language: 'JavaScript', memo: 'test', learned_time: '100', user_id: user_a.id) }
-  let(:comment) { FactoryBot.create(:comment, body: 'body', user_id: user_a.id, post_id: post.id) } 
+  let(:comment) { FactoryBot.create(:comment, body: 'body', user_id: user_a.id, post_id: post.id) }
   describe 'コメント新規投稿機能' do
     context 'ログインしているとき' do
       before do
@@ -44,12 +44,12 @@ RSpec.describe 'comments', type: :system do
         visit post_path(@post)
       end
       it 'コメントの削除ができる' do
-        expect {
+        expect do
           page.accept_confirm do
             click_on 'comment_delete'
           end
-          expect(page).to have_content 'コメントを削除しました'  
-        }.to change{ Comment.count }.by(-1)
+          expect(page).to have_content 'コメントを削除しました'
+        end.to change { Comment.count }.by(-1)
       end
     end
 

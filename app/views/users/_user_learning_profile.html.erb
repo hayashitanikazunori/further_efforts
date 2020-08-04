@@ -1,24 +1,24 @@
 <div class="details-card">
-  <% @user.total_and_counts.each do |total_and_count| %>
+  <% @user.learning_profile.each do |profile| %>
     <div class="card border-secondary mb-3">
       <div class="card-header">
-        <h3><%= total_and_count[0] %></h3>
+        <h3><%= profile[0] %></h3>
       </div>
 
       <div class="card-body">
         <div class="card-body-colum">
           <p class="card-texts">今週の学習時間</p>
-          <h5 class="card-title"><%= total_and_count[2] / 60 %>時間<%= total_and_count[2] % 60 %>分</h5>
+          <h5 class="card-title"><%= profile[2] / 60 %>時間<%= profile[2] % 60 %>分</h5>
         </div>
 
         <div class="card-body-colum">
           <p class="card-texts">累計学習時間</p>
-          <h5 class="card-title"><%= total_and_count[1] / 60 %>時間<%= total_and_count[1] % 60 %>分</h5>
+          <h5 class="card-title"><%= profile[1] / 60 %>時間<%= profile[1] % 60 %>分</h5>
         </div>
 
         <div class="card-body-colum">
           <p class="card-texts">投稿回数</p>
-          <h5 class="card-title"><%= total_and_count[3] %>回</h5>
+          <h5 class="card-title"><%= profile[3] %>回</h5>
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe '投稿機能', type: :system do 
-  let(:user_a) { FactoryBot.create(:user, name: 'test01', email: 'test01@example.com', password: 'password', password_confirmation: "password") }
-  let(:user_b) { FactoryBot.create(:user, name: 'test02', email: 'test02@example.com', password: 'password', password_confirmation: "password") }
+RSpec.describe '投稿機能', type: :system do
+  let(:user_a) { FactoryBot.create(:user, name: 'test01', email: 'test01@example.com', password: 'password', password_confirmation: 'password') }
+  let(:user_b) { FactoryBot.create(:user, name: 'test02', email: 'test02@example.com', password: 'password', password_confirmation: 'password') }
   let(:post) { FactoryBot.create(:post, learning_language: 'JavaScript', memo: 'test', learned_time: '100', user_id: user_a.id) }
   describe '一覧表示機能' do
     context 'ログインしている時' do
@@ -39,28 +39,28 @@ RSpec.describe '投稿機能', type: :system do
         sign_in(user_a)
         visit new_post_path
       end
-      
+
       it '投稿ができる' do
         select 'JavaScript', from: 'post[learning_language]'
-        fill_in "memo", with: 'memo'
+        fill_in 'memo', with: 'memo'
         select '01', from: 'time[post_learned_time(4i)]'
         select '00', from: 'time[post_learned_time(5i)]'
         click_button 'commit'
-        expect(post).to be_valid 
+        expect(post).to be_valid
         expect(page).to have_content '投稿しました'
       end
     end
-    
+
     context 'ログインしていて値が全て正しく入力されていないとき' do
       before do
         user_a.confirm
         sign_in(user_a)
         visit new_post_path
       end
-      
+
       it '投稿が失敗する' do
         select 'JavaScript', from: 'post[learning_language]'
-        fill_in "memo", with: nil
+        fill_in 'memo', with: nil
         select '01', from: 'time[post_learned_time(4i)]'
         select '00', from: 'time[post_learned_time(5i)]'
         click_button 'commit'
@@ -96,11 +96,11 @@ RSpec.describe '投稿機能', type: :system do
       end
 
       it '編集ができる' do
-        fill_in "memo", with: 'edit'
+        fill_in 'memo', with: 'edit'
         select '02', from: 'time[post_learned_time(4i)]'
         select '05', from: 'time[post_learned_time(5i)]'
         click_button 'commit'
-        expect(post).to be_valid 
+        expect(post).to be_valid
         expect(page).to have_content '編集しました'
       end
     end
@@ -145,12 +145,12 @@ RSpec.describe '投稿機能', type: :system do
         visit post_path(@post)
       end
       it '削除ができてPostのレコードが1つ減る' do
-        expect {
+        expect do
           page.accept_confirm do
             click_on 'delete'
           end
-          expect(page).to have_content '削除しました'  
-        }.to change{ Post.count }.by(-1)
+          expect(page).to have_content '削除しました'
+        end.to change { Post.count }.by(-1)
       end
     end
 
