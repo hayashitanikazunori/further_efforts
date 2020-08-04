@@ -20,7 +20,7 @@
 
         <th>
           <% if commented_user.user_id == current_user.id %>
-            <%= link_to post_comment_path(commented_user.post.id, commented_user.id), method: :delete, :id => 'comment_delete', :class => "link_style", :onclick => "return confirm('本当に削除しますか？')" do %>
+            <%= link_to post_comment_path(commented_user.post.id, commented_user.id), method: :delete, :id => 'comment_delete', :class => "link_style delete", :onclick => "return confirm('本当に削除しますか？')" do %>
               <i class="far fa-trash-alt action-btn"></i>
             <% end %>
           <% end %>

@@ -26,6 +26,10 @@ body {
   background-color: #f1f1f1;
 }
 
+.alert {
+  text-align: center;
+}
+
 .alert-notice {
   @extend .alert-info;
 }

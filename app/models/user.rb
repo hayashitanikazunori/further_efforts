@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   
   def posts
-    return Post.where(user_id: self.id).order('id DESC')
+    Post.where(user_id: self.id).order('id DESC')
   end
 
   def self.week_ranking

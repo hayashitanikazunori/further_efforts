@@ -44,7 +44,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry-rails'
   gem 'rb-readline'
-  # gem 'bullet' # N+1問題ハリボテが終わったら解決に入る
+  gem 'bullet'
 end
 
 group :development do
