@@ -1,24 +1,45 @@
-# README
+# Further Efforts
+プログラミングの学習時間を投稿し、みんなとシェアしあうことでモチベーションを高めるSNSです！
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 開発動機
+* 私は、人として最も素敵な瞬間はできなかったことができるようになり成長を実感する時だと思います！私自身も過去できなかったことが圧倒的な努力で結果をだし、人から認められた瞬間を経験したことがあり、その経験からもこの考えは私が努力をする原動力として根付いています！多くの人が自らの意思で努力を積み重ねていくサポートができたらと思い、当アプリ開発に至りました！
 
-Things you may want to cover:
+## 本番環境
+https://furtherefforts.herokuapp.com
+ページ下部の簡単ログインをご利用して頂ければゲストユーザーとしてログインできます！
 
-* Ruby version
+## 使用技術
+* Ruby 2.5.1 
+* Ruby on Rails 6.0.3
+* Postgresql 
+* SCSS
+* Rspec
+* Rubocop
+* Bootstrap
+* AWS※実装予定
+* Docker※実装予定
+* CicleCI(CI/CD)※実装予定
 
-* System dependencies
+## 機能一覧
+### ユーザー機能
+* 登録・編集・ログイン(devise)
+* SNS登録・ログイン機能
+* 画像アップロード機能(ActiveStorage S3へ保存)
+* 学習時間週間ランキング表示機能
+* 学習言語ごとの詳細表示機能
+* 詳細ページにタブメニュー（学習言語ごとの詳細一覧、過去の投稿一覧、フォロー一覧、フォロアー一覧）
+### 投稿機能
+* 編集、削除機能
+* いいね機能 (非同期通信)
+* 投稿へのコメント機能
+* コメント削除機能
+### 検索機能(ransack)
+* 検索機能（プログラミング言語ごとに選択検索）
+* 投稿検索（ユーザー名、コメント文から部分一致検索）
+### その他
+* ページネーション機能(kaminari)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 今後の進展
+* VScode拡張機能でエディターを開いている間を時間計測し、当アプリに自動保存される機能を開発する！
+* 学習時間の進捗具合で達成度が表示されるカレンダーを実装！
+* ユーザー自信が管理できるTODOリスト機能を実装！
