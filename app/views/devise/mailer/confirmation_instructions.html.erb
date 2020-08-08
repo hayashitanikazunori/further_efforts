@@ -1,5 +1,9 @@
-<p>Welcome <%= @email %>!</p>
+<p>
+  <%= @resource.name %><br>
 
-<p>You can confirm your account email through the link below:</p>
+  Futher Effotsをご利用いただきありがとうございます。<br>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+  以下のURLをクリックして、メールアドレス変更手続きを完了してください。<br>
+
+  <%= link_to '会員登録を完了する', confirmation_url(@resource, confirmation_token: @token) %><br>
+</p>
