@@ -72,7 +72,7 @@ Rails.application.configure do
     :port => '587',
     :user_name => ENV['MAILER_ADDRESS'],
     :password => ENV['MAILER_PASSWORD'],
-    :domain => 'gmail.com'
+    :domain => 'gmail.com',
     :authentication => :plain,
     :enable_starttls_auto => true
   }
