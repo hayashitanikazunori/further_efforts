@@ -49,6 +49,9 @@ default: &default
     - .jpg
 
 development:
+  dev_server:
+    host: webpacker
+    hmr: true
   <<: *default
   compile: true
 
