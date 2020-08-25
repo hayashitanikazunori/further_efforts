@@ -18,7 +18,7 @@ https://furtherefforts.herokuapp.com
 * Bootstrap
 
 ## インフラ
-* Docker※実装予定
+* Docker
 <!-- * AWS※実装予定
 * CicleCI(CI/CD)※実装予定 -->
 
