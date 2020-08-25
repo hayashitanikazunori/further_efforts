@@ -16,8 +16,10 @@ https://furtherefforts.herokuapp.com
 * Rspec
 * Rubocop
 * Bootstrap
-<!-- * AWS※実装予定
+
+## インフラ
 * Docker※実装予定
+<!-- * AWS※実装予定
 * CicleCI(CI/CD)※実装予定 -->
 
 ## 機能一覧
