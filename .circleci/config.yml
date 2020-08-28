@@ -6,7 +6,7 @@ jobs:
         enviroment:
           POSTGRES_USER: further_efforts
           PGHOST: 127.0.0.1
-          - BUNDLER_VERSION: 2.1.4
+          BUNDLER_VERSION: 2.1.4
           - RAILS_ENV: 'test'
       - image: circleci/postgresql:12.3
         enviroment:
@@ -23,9 +23,14 @@ jobs:
       - run:
           name: install dependencies
           command: |
-              sudo gem update --system
-              bundle config set path 'vender/bundle'
-              bundle install
+            gem install bundler -v 2.1.4
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run:
+          name: bundle install
+          command: |
+            sudo gem update --system
+            bundle config set path 'vender/bundle'
+            bundle install
       - save_cache:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
