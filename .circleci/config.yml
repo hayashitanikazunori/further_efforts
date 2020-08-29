@@ -4,9 +4,9 @@ jobs:
     docker:
       - image: circleci/ruby:2.7.1
         enviroment:
-          - BUNDLER_VERSION: 2.1.4
-          - RAILS_ENV: 'test'
-          - PGHOST: 127.0.0.1
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: root
       - image: circleci/postgresql:12.3
         enviroment:
           POSTGRES_USER: further_efforts
