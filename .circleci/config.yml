@@ -6,7 +6,7 @@ jobs:
         enviroment:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
-          PGUSER: root
+          POSTGRES_USER: further_efforts
       - image: circleci/postgresql:12.3
         enviroment:
           POSTGRES_USER: further_efforts
