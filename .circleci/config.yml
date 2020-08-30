@@ -3,12 +3,12 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.7.1
-        enviroment:
+        environment:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           POSTGRES_USER: further_efforts
       - image: circleci/postgresql:12.3
-        enviroment:
+        environment:
           - POSTGRES_USER: further_efforts
           - POSTGRES_HOST_AUTH_METHOD: trust # パスワード無しでDBにログインできる。
           - POSTGRES_DB: further_efforts_test # DB名を命名
