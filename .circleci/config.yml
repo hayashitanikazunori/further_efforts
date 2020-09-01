@@ -106,12 +106,14 @@ jobs: # 一連のステップ
           BUNDLE_PATH: vendor/bundle
           PGHOST: 127.0.0.1
           PGUSER: further_efforts
+          # - POSTGRES_HOST_AUTH_METHOD: trust
           RAILS_ENV: test
       - image: circleci/postgres:12.3 # データベース イメージ
         environment: # データベースの環境変数
           POSTGRES_USER: further_efforts
           POSTGRES_DB: further_efforts_test
-          POSTGRES_PASSWORD: ""
+          POSTGRES_HOST_AUTH_METHOD: trust
+          # POSTGRES_PASSWORD: ""
     steps: # 実行可能コマンドの集合
       - checkout # ソース コードを作業ディレクトリにチェックアウトする特別なステップ
 
@@ -119,7 +121,7 @@ jobs: # 一連のステップ
 
       - run:
           name: Bundler の指定
-          command: bundle -v 2.1.4
+          command: bundle -v
 
       # バンドル キャッシュを復元します
       # 依存関係キャッシュについては https://circleci.com/ja/docs/2.0/caching/ をお読みください
