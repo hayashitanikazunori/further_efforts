@@ -46,7 +46,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/ruby:2.7-node
+      - image: cimg/ruby:2.7.1
     steps:
       - checkout
       - ruby/install-deps
@@ -63,13 +63,13 @@ jobs:
           POSTGRES_USER: further_efforts
           POSTGRES_DB: further_efforts_test
           POSTGRES_HOST_AUTH_METHOD: trust
-          # POSTGRES_PASSWORD: ""
+          # POSTGRES_PASSWORD: "password"
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
       PGHOST: 127.0.0.1
       PGUSER: further_efforts
-      # PGPASSWORD: ""
+      PGPASSWORD: ""
       RAILS_ENV: test
     steps:
       - checkout
@@ -85,7 +85,6 @@ jobs:
           command: bundle exec rails db:schema:load --trace
       # Run rspec in parallel
       - ruby/rspec-test
-      - ruby/rubocop-check
 
 workflows:
   version: 2
