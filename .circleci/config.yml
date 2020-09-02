@@ -16,8 +16,8 @@ jobs: # 一連のステップ
         environment: # データベースの環境変数
           POSTGRES_USER: further_efforts
           POSTGRES_DB: further_efforts_test
-          # POSTGRES_HOST_AUTH_METHOD: trust
-          POSTGRES_PASSWORD: ""
+          POSTGRES_HOST_AUTH_METHOD: trust
+          # POSTGRES_PASSWORD: ""
     steps: # 実行可能コマンドの集合
       - checkout # ソース コードを作業ディレクトリにチェックアウトする特別なステップ
 
