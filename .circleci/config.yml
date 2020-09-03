@@ -77,33 +77,17 @@ version: 2.1
 jobs:
   build:
     parallelism: 3
-    # docker:
-    #   - image: circleci/ruby:2.7.1-node-browsers
-    #     environment:
-    #       BUNDLE_JOBS: 3
-    #       BUNDLE_RETRY: 3
-    #       BUNDLE_PATH: vendor/bundle
-    #       RAILS_ENV: test
-    #       PGHOST: 127.0.0.1
-    #       PGUSER: further_efforts
-    #   - image: circleci/postgres:12.3
-    #     environment:
-    #       POSTGRES_USER: root
-    #       POSTGRES_DB: further_efforts_test
-    #       POSTGRES_HOST_AUTH_METHOD: trust
-    #       PGHOST: 127.0.0.1
-    docker: # Docker でステップを実行します
-      - image: circleci/ruby:2.7.1-node-browsers # このイメージをすべての `steps` が実行されるプライマリ コンテナとして使用します
-        environment: # プライマリ コンテナの環境変数
+    docker:
+      - image: circleci/ruby:2.7.1-node-browsers
+        environment:
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
           PGHOST: 127.0.0.1
           PGUSER: further_efforts
-          # POSTGRES_HOST_AUTH_METHOD: trust
           RAILS_ENV: test
-      - image: circleci/postgres:12.3 # データベース イメージ
-        environment: # データベースの環境変数
+      - image: circleci/postgres:12.3
+        environment:
           POSTGRES_USER: further_efforts
           POSTGRES_DB: further_efforts_test
           POSTGRES_HOST_AUTH_METHOD: trust
@@ -140,7 +124,7 @@ jobs:
 
       - run:
           name: Wait for DB
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
