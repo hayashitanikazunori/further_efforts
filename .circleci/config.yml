@@ -1,7 +1,7 @@
-version: 2 # CircleCI 2.0 を使用します
-jobs: # 一連のステップ
+version: 2
+jobs:
   build: # ワークフローを使用しない実行では、エントリポイントとして `build` ジョブが必要です
-    parallelism: 3 # このジョブのインスタンスを 3 つ並列実行します
+    parallelism: 3
     docker: # Docker でステップを実行します
       - image: circleci/ruby:2.7.1-node-browsers # このイメージをすべての `steps` が実行されるプライマリ コンテナとして使用します
         environment: # プライマリ コンテナの環境変数
@@ -10,51 +10,42 @@ jobs: # 一連のステップ
           BUNDLE_PATH: vendor/bundle
           PGHOST: 127.0.0.1
           PGUSER: further_efforts
-          # POSTGRES_HOST_AUTH_METHOD: trust
           RAILS_ENV: test
       - image: circleci/postgres:12.3 # データベース イメージ
         environment: # データベースの環境変数
           POSTGRES_USER: further_efforts
           POSTGRES_DB: further_efforts_test
           POSTGRES_HOST_AUTH_METHOD: trust
-          # POSTGRES_PASSWORD: ""
-    steps: # 実行可能コマンドの集合
-      - checkout # ソース コードを作業ディレクトリにチェックアウトする特別なステップ
+          POSTGRES_PASSWORD: ""
+    steps:
+      - checkout
 
-      # Bundler のバージョンを指定します
       - run:
           name: Bundler の指定
           command: bundle -v
 
-      # バンドル キャッシュを復元します
       - restore_cache:
           keys:
             - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
             - rails-demo-bundle-v2-
 
-      - run: # Ruby の依存関係をインストールします
+      - run:
           name: バンドル インストール
           command: bundle check --path vendor/bundle || bundle install --deployment
 
-      # Ruby の依存関係のバンドル キャッシュを保存します
-
       - save_cache:
-          key: further_efforts-bundle-v2-{{ checksum "Gemfile.lock" }}
+          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
 
-      # アプリケーションで Webpacker または Yarn を他の何らかの方法で使用する場合にのみ必要です
-
       - restore_cache:
           keys:
-            - further_efforts-yarn-{{ checksum "yarn.lock" }}
-            - further_efforts-yarn-
+            - rails-demo-yarn-{{ checksum "yarn.lock" }}
+            - rails-demo-yarn-
 
       - run:
           name: Yarn のインストール
           command: yarn install --cache-folder ~/.cache/yarn
-
-      # Yarn または Webpacker のキャッシュを保存します
 
       - save_cache:
           key: further_efforts-yarn-{{ checksum "yarn.lock" }}
@@ -72,4 +63,11 @@ jobs: # 一連のステップ
       - run:
           name: RSpecの実行
           command: |
-            bundle exec rspec
+            bundle exec rspec --profile 10 \
+                      --format RspecJunitFormatter \
+                      --out test_results/rspec.xml \
+                      --format progress \
+                      $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+
+      - store_test_results:
+        path: test_results
