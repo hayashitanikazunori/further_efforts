@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'ユーザー機能', type: :system do
-  let(:user_a) { FactoryBot.create(:user, name: 'test01', email: 'test01@example.com', password: 'password', password_confirmation: 'password') }
-  let(:user_b) { FactoryBot.create(:user, name: 'test02', email: 'test02@example.com', password: 'password', password_confirmation: 'password') }
+  let(:user_a) { FactoryBot.create(:user, name: 'test01', email: 'test01@example.com') }
+  let(:user_b) { FactoryBot.create(:user, name: 'test02', email: 'test02@example.com') }
   describe '新規登録機能' do
     context '全てが正しく入力されている時' do
       before do
