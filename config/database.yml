@@ -6,10 +6,10 @@
 #
 
 default: &default
-  adapter: postgresql
+  adapter: mysql2
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  encoding: unicode
+  encoding: utf8
   username: further_efforts
   password:
   host: localhost
@@ -28,6 +28,6 @@ test:
 
 production:
   <<: *default
-  adaptrer: postgresql
-  encoding: unicode
+  adaptrer: mysql2
+  encoding: utf8
   pool: 5
