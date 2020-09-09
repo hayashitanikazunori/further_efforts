@@ -17,9 +17,9 @@ https://www.furtherefforts.com
 * Rubocop
 * Bootstrap
 
-## <span style="collor: red;">インフラ</span>
-* Docker,Docker-compose
-* AWS(VPC,EC2,RDS,Route53,S3)
+## インフラ
+<span style="color: red; ">* Docker,Docker-compose</span>
+<span style="color: red; ">* AWS(VPC,EC2,RDS,Route53,S3)</span>
 <!-- * CicleCI(CI/CD)※実装予定 -->
 
 ## 機能一覧
