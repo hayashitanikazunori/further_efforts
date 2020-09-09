@@ -18,8 +18,8 @@ https://www.furtherefforts.com
 * Bootstrap
 
 ## インフラ
-<span style="color: red; ">* Docker,Docker-compose</span>
-<span style="color: red; ">* AWS(VPC,EC2,RDS,Route53,S3)</span>
+* Docker,Docker-compose
+* AWS(VPC,EC2,RDS,Route53,S3)
 <!-- * CicleCI(CI/CD)※実装予定 -->
 
 ## 機能一覧
