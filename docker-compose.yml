@@ -1,23 +1,26 @@
 version: '3'
 services:
   db:
-    image: postgres
-    env_file: 
-      - ./.env
-    volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+    image: mysql:5.7
     environment: 
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      MYSQL_DATABASE: root
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./docker/db/data:/var/lib/mysql
+      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+    ports:
+      - "3306:3306"
+
   web:
     build: .
-    environment:
-      SELENIUM_REMOTE_URL: http://chrome:4444/wd/hub
+    # environment:
+      # RAILS_ENV: development
+      # SELENIUM_REMOTE_URL: http://chrome:4444/wd/hub
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/further_efforts
     ports:
       - "3000:3000"
-    shm_size: '2gb'
+    # shm_size: '2gb'
     depends_on:
       - db

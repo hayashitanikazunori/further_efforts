@@ -83,15 +83,14 @@ jobs:
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
-          PGHOST: 127.0.0.1
-          PGUSER: further_efforts
           RAILS_ENV: test
-      - image: circleci/postgres:12.3
+      - image: circleci/mysql:8.0
         environment:
-          POSTGRES_USER: further_efforts
-          POSTGRES_DB: further_efforts_test
-          POSTGRES_HOST_AUTH_METHOD: trust
-          # POSTGRES_PASSWORD: ""
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ROOT_HOST: 127.0.0.1
+
+    working_directory: ~/furhter_efforts
+
     steps:
       - checkout
 
