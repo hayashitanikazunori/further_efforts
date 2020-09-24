@@ -12,9 +12,11 @@ jobs:
       - image: circleci/mysql:5.7
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_HOST: 127.0.0.1
+          MYSQL_DATABASE: further_efforts_test
+          MYSQL_USER: root
+          MYSQL_ROOT_PASSWORD: password
 
-    working_directory: ~/furhter_efforts
+    # working_directory: ~/furhter_efforts
 
     steps:
       - checkout

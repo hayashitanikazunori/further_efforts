@@ -7,6 +7,11 @@
 ## 本番環境
 https://www.furtherefforts.com
 ページ下部の簡単ログインをご利用して頂ければゲストユーザーとしてログインできます！
+※新規登録ができないエラーが発生しているため現在修正中です。ゲストログインは可能です。
+
+↓新規登録の場合はお手数ですが、herokuの本番環境をご利用ください↓
+https://furtherefforts.herokuapp.com/
+
 
 ## 使用技術
 * Ruby 2.7.1 
@@ -20,7 +25,7 @@ https://www.furtherefforts.com
 ## インフラ
 * Docker,Docker-compose
 * AWS(VPC,EC2,RDS,Route53,S3)
-<!-- * CicleCI(CI/CD)※実装予定 -->
+* CicleCI(CI)
 
 ## 機能一覧
 ### ユーザー機能
