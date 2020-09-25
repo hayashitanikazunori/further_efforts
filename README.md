@@ -49,7 +49,6 @@ https://furtherefforts.herokuapp.com/
 ## AWS構成図
 ![AWS-diagram](https://user-images.githubusercontent.com/62496077/94250775-a0ea3880-ff5c-11ea-8f8c-55c8f3c65959.png)
 
-
 ## 今後の進展
 * VScode拡張機能でエディターを開いている間を時間計測し、当アプリに自動保存される機能を開発する
 * 学習時間の進捗具合で達成度が表示されるカレンダーを実装
